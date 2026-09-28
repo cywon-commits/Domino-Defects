@@ -52,7 +52,31 @@ Check of the removed-corner case: (π/θ)=2, e q_c = −3/4 → 2g[2(1/2 − 3/4
 1. The dual field keeps Neumann boundary conditions at a free edge for all g (same-sign image).
 2. No electric (height-locking) operators are relevant: fails near the columnar transition,
    where cos(4πh)-type terms become relevant.
-3. Mapping to Alet et al. (PRL 94, 235702, 2005): the bulk monomer correlation decays as
-   r^{−g}. I recall that their normalization has dimer ~ r^{−1/g}, monomer ~ r^{−g} with g = 1/2
-   at v = 0, which matches ours; this must be confirmed from the original before Task 4.
+3. Mapping to Alet et al. (PRL 94, 235702, 2005; arXiv cond-mat/0501241) — CONFIRMED from the
+   original: alpha(e,m) = e^2/g + g m^2, alpha_m = g (monomer M(x) ~ x^{-alpha_m}), alpha_d = 1/g,
+   g = 1/2 at T = infinity. Aligning v = -1: g grows to g(Tc) = 4 at Tc = 0.65(1) (|v|/Tc ~ 1.54),
+   KT via the p = 4 locking term. Repulsive v = +1: g decreases to 0 at T_t = 0.449(1).
+   So our g is exactly theirs; Task 4 can measure g from winding fluctuations, their Eq. (5).
 4. Frozen regions / μ (Aztec) are outside this Gaussian argument.
+
+## 6. Honeycomb (Task 0, item 2)
+
+- Winding: honeycomb Thurston units (empty edge +1, dimer −2 around a vertex of degree 3):
+  a monomer winds by ±3, so the corner rule generalizes to q_c = −J_c / w with w = 3 when J_c is
+  measured in the same units. The monomer is still a unit magnetic charge, so x_m = g/2 = 1/4 at
+  the free-fermion point (consistent with Ciucu's q1 q2/2 hole interactions; to be checked
+  numerically with a bulk pair on a large flake).
+- Which boundaries are flat? In brick-wall form the honeycomb is the square lattice with one of the
+  four dimer types missing, so the slope polygon shrinks from a square to a triangle. The square
+  lattice's zero tilt (forced by an axis-parallel rectangle) lies ON an edge of that triangle:
+  brick-wall rectangles are frozen/degenerate. A flat liquid needs boundaries whose tilt is interior
+  (all three orientations 1/3).
+- Numerical test (paper2/honeyflake.py, honey_diag.py; exact inverse of the biadjacency matrix):
+  armchair D6 flakes are flat liquids: bulk mean|P−1/3| = 0.035, 0.017, 0.012 (core) and 0.052,
+  0.028, 0.021 (mid) for R = 12, 20, 28 (366–2106 sites), no near-frozen edge, deviation confined
+  to a lattice-scale boundary layer. Zigzag D6 flakes (= lozenge hexagons) are not: mid-annulus
+  deviation stays ~0.06 and near-frozen edges grow 18 → 108 (arctic behaviour).
+- Pitfall found: averaging P by orientation over annuli hides the anisotropy (D6 symmetry makes each
+  annulus average 1/3). Use local |P − 1/3|.
+- Next: boundary height jumps J_c at the 120° corners of armchair flakes → q_c; then Task 2 proper
+  (one forced defect: remove a site, density vs Eq. T1 with f for the hexagon).
