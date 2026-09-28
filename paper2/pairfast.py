@@ -7,12 +7,13 @@ from pftri import kmat
 class Pair:
     def __init__(s, L, t, r0=None):
         s.L=L; s.t=t; s.r0 = L//2 if r0 is None else r0
-        K=kmat(L,L,t); s.K=K
+        K=kmat(L,L,t)
         S=np.r_[s.r0*L:(s.r0+2)*L]; s.S=S
-        lu=sl.lu_factor(K, overwrite_a=False, check_finite=False)
+        s.KS=K[np.ix_(S,S)].copy()
+        lu=sl.lu_factor(K, overwrite_a=True, check_finite=False); del K
         E=np.zeros((L*L,len(S))); E[S,np.arange(len(S))]=1
         s.G=sl.lu_solve(lu,E,check_finite=False)[S,:]   # G_SS
-        s.KS=K[np.ix_(S,S)]; del lu
+        del lu
     def C(s, c1, c2):
         L=s.L; loc=lambda r,c:(r-s.r0)*L+c
         D=np.zeros_like(s.KS)
