@@ -95,3 +95,34 @@ Adjacent corners have opposite sign because a 60° rotation about the face centr
 Prediction for Task 2: a defect of charge e near a 120° corner (π/θ = 3/2) has
 γ = 2g[(3/2)(1/2 + e q_c) − 1/4] = (3/2)(1/2 + e q_c) − 1/4 at g = 1/2, i.e. γ ∈ {1/2, 0, 1} for
 e q_c = 0, −1/3, +1/3 and γ ∈ {−1/2, 3/2} for e q_c = −2/3, +2/3.
+
+## 8. Task 2 first results — the naive J rule FAILS on armchair corners; a half-unit correction works
+
+Setup (paper2/honey_defect.py): A-centred armchair flakes have n_A = n_B + 1, so one A defect
+(e = +1) is forced without removing any site. Z(flake − v) by sparse LU with a downward string;
+checked against brute-force enumeration for every defect site (R = 3.5, 4.5). Two families by
+corner termination (J measured as in §7, mod 3 because of the defect's winding):
+  type I  (R = 10, 15, 18, 20, 23, 28, 31, 33, 36): J = 0 (30°,150°,270°), +1 (90°,210°,330°)
+  type II (R = 9, 12, 14, 17, 22, 25, 27, 30, 35, 38): J = −1 and +2.
+
+Observations:
+- type I: all boundary A sites have exactly the same defect probability, and the profiles from a
+  J = 0 corner and a J = +1 corner into the centre coincide to 3 digits, although the corners differ
+  geometrically (B count 3 vs 5 within distance 3). The A set is C6-symmetric; the defect density
+  inherits that symmetry → type I is Temperleyan (density governed by the A lattice), ρ ∝ R^{1/4}.
+- Corner exponent from corner/centre ~ R^{−γ} (paper2/honey_scaling.py, R ≤ 38):
+    type I   30°, 90°:  γ = 0.29 (fit), local 0.24–0.36
+    type II  30°:       γ = 0.76 (fit), local 0.65–0.79
+    type II  90°:       γ = −0.25 (fit), local −0.22 to −0.26
+  Naive q_c = −J/3 predicts 1/2, 0 (type I) and 1, −1/2 (type II): wrong.
+- Effective rule that fits all four: J_eff = J + 1/2 at the 30°-type corners and J − 1/2 at the
+  90°-type corners, q_eff = −J_eff/3:
+    type I  q_eff = −1/6 at all six corners → γ = 1/4 (Temperley)
+    type II q_eff = +1/6, −1/2              → γ = 3/4, −1/4
+  Totals: Σ q_eff = −1 in both families (neutralizes the defect).
+- Interpretation (hypothesis): on armchair edges the boundary height oscillates on the lattice
+  scale, and averaging the dual-edge midpoint heights sets the reference differently by 1/2 unit
+  depending on the corner termination. Needs a principled coarse-graining (e.g. average over the
+  faces adjacent to the edge) before it can be called a rule. Local exponents still oscillate;
+  larger R and the full density formula (Schwarz–Christoffel map of the hexagon) are next.
+- Same-sign image test at edge midpoints: not done yet (in type I edge sites equal corner sites).
