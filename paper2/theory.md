@@ -158,3 +158,26 @@ Inward profile from the edge midpoint (R = 36, 38): d ln ρ / d ln d = +0.20, +0
 Same-sign image (dual Neumann) predicts R^{−1/4} and d^{+1/4}; opposite sign predicts R^{+1/4},
 d^{−1/4}. Verdict: SAME SIGN on honeycomb armchair edges; the slightly small inward slope is the
 expected saturation of the (Im f) factor at d ~ R/4.
+
+## 11. Novelty check against Ciucu's programme (web, 2026-09-29)
+
+Known (cite, do not claim):
+- Bulk Coulomb law for gaps/holes on the hexagonal lattice, charge = (#down − #up triangles)
+  (Ciucu, Mem. AMS 2005; PNAS 2008; Trans. AMS 2010).
+- Image rule by boundary type: constrained zig-zag boundary → image with the SAME orientation
+  (Neumann / insulating); free boundary (lozenges may protrude) → OPPOSITE orientation, gap attracted
+  like a charge to a straight conductor, correlation ~ 1/(4πr) (Ciucu–Krattenthaler, CMP 302 (2011);
+  Ciucu, 90° wedge with mixed boundary conditions, arXiv 1403.0925).
+- 60° angle with zig-zag sides: correlation = product of distances to five images
+  (Ciucu–Fischer, arXiv 2014) — i.e. images only, q_c = 0 in our language.
+Our §10 (same sign on armchair edges) is therefore an extension of the constrained-boundary rule,
+not a new rule.
+
+Likely new (to be stated carefully in Paper II):
+- Corner charges from the boundary-height jump, and on the honeycomb the half-unit correction
+  (J_eff = J ± 1/2, §8–9); corner types {−1/6} (Temperley) and {+1/6, −1/2}.
+- Forced single defects in odd (unbalanced) regions and their full density, corner exponents γ.
+- Temperley / non-Temperley classification of armchair flakes by corner termination.
+- The single g-covariant formula γ(g) tying square, honeycomb and (Task 4) interacting dimers.
+Check to do: does our framework reproduce Ciucu–Fischer's 60° zig-zag result with q_c = 0?
+(a consistency test of the corner-charge rule on a boundary type Ciucu solved exactly).
