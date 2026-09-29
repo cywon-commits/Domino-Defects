@@ -181,3 +181,19 @@ Likely new (to be stated carefully in Paper II):
 - The single g-covariant formula γ(g) tying square, honeycomb and (Task 4) interacting dimers.
 Check to do: does our framework reproduce Ciucu–Fischer's 60° zig-zag result with q_c = 0?
 (a consistency test of the corner-charge rule on a boundary type Ciucu solved exactly).
+
+## 12. 60° armchair corners (Ciucu–Fischer boundary type) — rule-independent test (honey_triangle.py)
+
+Note: Ciucu–Fischer's "zig-zag lines" are zig-zag paths on the TRIANGULAR lattice = armchair edges of the
+honeycomb, i.e. our boundary type (flat liquid, same-sign images). Their 60° wedge result (gap + five
+images) is the q_c = 0 case.
+C3-symmetric armchair triangles centred on an A site: n_A − n_B = 1 for every R = 6..59 (one forced A
+defect). By symmetry all three corners are equal, and neutrality forces q_c = −1/3 each — independent of
+any rule for J. Naive boundary jump: J = +1 at all three corners (the −2 at 180° includes the cut: −2+3),
+so q_c = −J/3 = −1/3: at 60° corners the naive rule is exact (no half-unit shift).
+Prediction (g = 1/2, π/θ = 3): γ = 3(1/2 − 1/3) − 1/4 = 1/4 (vs 5/4 without corner charge).
+Measured corner/centre, R = 8..58 (up to 13 262 sites): γ = 0.219 (fit); same-phase subsequence
+R = 8, 16, 24, 32, 40: local 0.19, 0.22, 0.23, 0.25; R = 12, 20, 28, 36: 0.11, 0.27, 0.27.
+Verdict: corner charge + same-sign images + γ formula confirmed at 60° corners; 5/4 excluded.
+Consequence: the half-unit shift found at 120° armchair corners (§8–9) is specific to those corners
+(where the two edges' lattice oscillations meet with a phase offset), not a failure of the framework.
