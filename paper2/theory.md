@@ -220,3 +220,18 @@ Verdict: the edge-class shift rule predicts all eight corners within 0.02–0.05
 at every 120° corner by 0.25–0.3. Honeycomb corner charge: q_c = −(J + σ/2)/3, σ = ±1 at 120° corners
 by the class order, σ = 0 at 60° corners.
 Open: derive δ = 1/4 from the lattice (e.g. mean height next to a single armchair edge in a half plane).
+
+## 14. Direct lattice measurement of δ (paper2/honey_strip.py)
+
+Long balanced strips between parallel armchair edges with normals 0 (class +) and 180 (class −),
+W = 6..16, L = 3.5W..5W (up to 2280 A sites). Exact <h> (§9 method); the interior profile across the
+strip is linear, b = m + σδ at each edge. Only δ(+) − δ(−) is reference-independent.
+  linear fit, edge layer excluded to depth 3 or 5:  δ(+) − δ(−) = −0.54 ± 0.01 (W = 12, 16; any L)
+  depth cut 1.5:                                    −0.43 (W = 12), −0.47 (W = 16)
+  fits with 1/d boundary-layer tails: ill-conditioned (values scatter from +0.9 to −11), unusable.
+So the linear estimate brackets −1/2 with a method systematic of about ±0.06; sign agrees with the
+calibration (ccw class + → class − adds +1/2).
+Why 1/2 should be exact: type-I flakes have exactly equal defect probability on all boundary A sites
+(Temperley). In the continuum that requires e q_c = −1/6 at all six 120° corners, i.e. a shift of exactly
+1/2. Status: δ(+) − δ(−) = −1/2 (exact by the Temperley argument; lattice measurement −0.43…−0.55).
+A proof would come from the half-plane Kasteleyn inverse next to an armchair edge (not attempted).
