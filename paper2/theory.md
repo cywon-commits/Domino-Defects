@@ -126,3 +126,24 @@ Observations:
   faces adjacent to the edge) before it can be called a rule. Local exponents still oscillate;
   larger R and the full density formula (Schwarz–Christoffel map of the hexagon) are next.
 - Same-sign image test at edge midpoints: not done yet (in type I edge sites equal corner sites).
+
+## 9. Principled corner jump from the interior mean height (paper2/honey_meanh.py, honey_fitJ.py)
+
+Balanced face-centred armchair flakes (no defect, so <h> is single-valued). Crossing a bond with A on
+the left, dh = 1 − 3x, so <dh> = 1 − 3P with exact P from the inverse; integrated on the dual graph
+(curl error ≤ 4e−15). The boundary faces themselves give levels that differ from the dual-edge-midpoint
+reading by half units — the source of the ambiguity. The continuum boundary value of an edge is the
+value the interior mean field approaches, so fit interior faces (hexagonal radius < 0.7) to
+<h> = c + a u(z), u = harmonic function on the regular hexagon with boundary values ±1 on alternating
+edges (finite differences, 401²). J_eff at the 30° corner = −2a.
+
+  family (naive J at 30°)   predicted J_eff   measured (R = ...)
+  J = 0   (R 12..30)        +1/2              +0.32, (+0.69 at R=17), +0.37, +0.42, +0.42, +0.46
+  J = −1  (R 11..29)        −1/2              −0.24, −0.35, −0.61, −0.61, −0.42, −0.46
+  J = −2  (R 15..28)        −3/2              −1.32, −1.33, −1.09, −1.39, −1.24
+
+All three are clearly away from the naive integers and on the predicted half-integer side; J = 0
+approaches +1/2 with R. Fit-window systematics ±0.1–0.15; J = −2 not yet at −1.5.
+Conclusion: the half-unit rule is supported by an independent, fit-free-in-J definition, but the
+convergence is not yet precise. Next: exact harmonic measure (Schwarz–Christoffel) instead of the
+grid u, fit that excludes a lattice-scale boundary layer of fixed width, and R up to ~60.
