@@ -147,3 +147,14 @@ approaches +1/2 with R. Fit-window systematics ±0.1–0.15; J = −2 not yet at
 Conclusion: the half-unit rule is supported by an independent, fit-free-in-J definition, but the
 convergence is not yet precise. Next: exact harmonic measure (Schwarz–Christoffel) instead of the
 grid u, fit that excludes a lattice-scale boundary layer of fixed width, and R up to ~60.
+
+## 10. Same-sign image on armchair edges (paper2/honey_image.py)
+
+Edge-midpoint A site vs centre, A-centred flakes (one forced A defect):
+  type I   edge/centre 0.914 → 0.628 (R 10 → 36): exponent −0.29 (local −0.24…−0.36)
+  type II  edge/centre 0.825 → 0.633 (R 9 → 38):  exponent −0.24 (local values oscillate with R)
+Inward profile from the edge midpoint (R = 36, 38): d ln ρ / d ln d = +0.20, +0.21 over 2 < d < R/4
+(ρ increases away from the edge).
+Same-sign image (dual Neumann) predicts R^{−1/4} and d^{+1/4}; opposite sign predicts R^{+1/4},
+d^{−1/4}. Verdict: SAME SIGN on honeycomb armchair edges; the slightly small inward slope is the
+expected saturation of the (Im f) factor at d ~ R/4.
