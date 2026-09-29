@@ -80,3 +80,18 @@ Check of the removed-corner case: (π/θ)=2, e q_c = −3/4 → 2g[2(1/2 − 3/4
   annulus average 1/3). Use local |P − 1/3|.
 - Next: boundary height jumps J_c at the 120° corners of armchair flakes → q_c; then Task 2 proper
   (one forced defect: remove a site, density vs Eq. T1 with f for the hexagon).
+
+## 7. Corner charges of armchair flakes (paper2/honey_corner.py)
+
+Boundary height from the dual (triangular-lattice) boundary cycle, step +1 (−1) when the interior
+vertex next to the boundary edge is A (B); configuration-independent. Averaging over each straight
+armchair edge (12° away from the corners) and differencing gives integer jumps. Scan R = 8..30:
+
+    J_c = 0, ±1 or ±2  (alternating in sign around the flake; total 0)   →   q_c = −J_c/3 ∈ {0, ∓1/3, ∓2/3}
+
+The value is set by the microscopic corner termination, not by the edge length (R = 9 and 10 both
+have 42 boundary steps but J = 0 and ±2). Three corner types, versus two (±1/4) on the square lattice.
+Adjacent corners have opposite sign because a 60° rotation about the face centre swaps A and B.
+Prediction for Task 2: a defect of charge e near a 120° corner (π/θ = 3/2) has
+γ = 2g[(3/2)(1/2 + e q_c) − 1/4] = (3/2)(1/2 + e q_c) − 1/4 at g = 1/2, i.e. γ ∈ {1/2, 0, 1} for
+e q_c = 0, −1/3, +1/3 and γ ∈ {−1/2, 3/2} for e q_c = −2/3, +2/3.
