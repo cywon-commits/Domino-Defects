@@ -197,3 +197,26 @@ R = 8, 16, 24, 32, 40: local 0.19, 0.22, 0.23, 0.25; R = 12, 20, 28, 36: 0.11, 0
 Verdict: corner charge + same-sign images + γ formula confirmed at 60° corners; 5/4 excluded.
 Consequence: the half-unit shift found at 120° armchair corners (§8–9) is specific to those corners
 (where the two edges' lattice oscillations meet with a phase offset), not a failure of the framework.
+
+## 13. Edge-class boundary-layer shift: explanation and a blind prediction test (honey_para.py, honey_para2.py)
+
+Boundary heights are NOT ambiguous: along an armchair edge the steps alternate +1, −1, so the midpoint
+height is exactly constant (half-integer); a corner shows a jump only where two equal steps meet.
+(The earlier "phase offset" guess is rejected.)
+Explanation: armchair edges come in two classes by outward normal (0/120/240° = class +, 60/180/300° =
+class −). A 60° rotation maps one class to the other and swaps A↔B, which flips h → −h. Hence the
+lattice boundary layer shifts the continuum boundary value by +δ on class + and −δ on class − edges.
+  - 120° corners join different classes → J_eff = J ± 2δ;  60° corners join the same class → J_eff = J.
+  - Calibration (§8–9): 2δ = 1/2; going ccw from a class + edge to a class − edge adds +1/2, the reverse −1/2.
+  This explains §8–9 (120°: ±1/2) and §12 (60°: 0) at once.
+Blind test: armchair parallelograms (A-centred, one forced A defect), two 60° and two 120° corners; exact
+naive J with the branch cut fixed at the 120°-direction corner (ΣJ = 3). Rule fixed beforehand.
+  F1 (R = 9..38), J(30,120,210,300) = (−1, 1, 2, 1):
+     predicted γ = +0.75, +0.25, −0.25, +0.25 (naive: +1.00, +0.25, −0.50, +0.25)
+     measured  γ = +0.71, +0.24, −0.27, +0.24 (last 5 R)
+  F2 (R = 10..36), J = (0, 1, 1, 1):
+     predicted +0.25 at all four (naive: +0.50, +0.25, 0, +0.25);  measured +0.28 at all four
+Verdict: the edge-class shift rule predicts all eight corners within 0.02–0.05; the naive rule fails
+at every 120° corner by 0.25–0.3. Honeycomb corner charge: q_c = −(J + σ/2)/3, σ = ±1 at 120° corners
+by the class order, σ = 0 at 60° corners.
+Open: derive δ = 1/4 from the lattice (e.g. mean height next to a single armchair edge in a half plane).
