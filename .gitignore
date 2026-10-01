@@ -17,3 +17,4 @@ dp/mut
 dp/tri
 fem_*.pkl
 !data/fem_house64_0.5.pkl
+.DS_Store
