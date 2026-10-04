@@ -12,6 +12,9 @@ cmap=LinearSegmentedColormap.from_list('d',['#f7f7f7','#9ecae1','#2171b5','#0830
 def save(fig,name): fig.savefig(f'../paper/figs/{name}.pdf',bbox_inches='tight'); plt.close(fig); print('saved',name)
 def heat(ax,M,vmax,title,vmin=0):
     im=ax.imshow(np.array(M),origin='lower',cmap=cmap,vmin=vmin,vmax=vmax,interpolation='nearest'); ax.set_xticks([]); ax.set_yticks([]); ax.set_title(title); return im
+def mark_removed(ax,x,y,label,dx,dy,ha):
+    ax.plot(x,y,marker='s',ms=5.5,mfc=C2,mec='k',mew=0.5,clip_on=False,zorder=6)
+    ax.text(x+dx,y+dy,label,color=C2,fontsize=6.5,ha=ha,va='center',clip_on=False)
 def loglog_series(ax,xs,ys,color,label,slope=None,anchor=-1,marker='o'):
     ax.loglog(xs,ys,marker,color=color,ms=3.5,label=label)
     if slope is not None:
@@ -44,33 +47,50 @@ save(fig,'fig1_schematic')
 fig=plt.figure(figsize=(7,2.35)); gs=fig.add_gridspec(1,4,width_ratios=[1,1,0.06,1.5],wspace=0.12)
 a0=fig.add_subplot(gs[0]); a1=fig.add_subplot(gs[1]); cax=fig.add_subplot(gs[2]); a2=fig.add_subplot(gs[3])
 im=heat(a0,D['single64']['data'],2.0,'(a) exact, $N=64$'); heat(a1,D['single64']['theory'],2.0,'(b) Coulomb gas')
+for _a in (a0,a1): mark_removed(_a,-0.5,-0.5,'a1',0.9,-1.6,'left')
 cb=fig.colorbar(im,cax=cax); cb.set_label(r'$\rho/\rho_{\rm unif}$')
-a2.set_position([a2.get_position().x0+0.11,a2.get_position().y0,a2.get_position().width-0.11,a2.get_position().height])
+a2.set_position([a2.get_position().x0+0.15,a2.get_position().y0,a2.get_position().width-0.15,a2.get_position().height])
 Ns=sorted(int(k) for k in D['corner']); arr=np.array([D['corner'][str(n)] for n in Ns])
 loglog_series(a2,Ns,arr[:,0],C2,r'cell next to removed a1 (slope $3/4$)',0.75)
 loglog_series(a2,Ns,arr[:,1],C1,r'corner h1 (slope $-1/4$)',-0.25)
 loglog_series(a2,Ns,arr[:,2],C3,r'cell next to h8 (slope $-5/4$)',-1.25)
-a2.set_xlabel('board size $N$'); a2.set_ylabel(r'$\rho/\rho_{\rm unif}$'); a2.legend(frameon=False,loc='lower left',fontsize=6); a2.set_title('(c) corner scaling (dashed: theory)')
+a2.set_xlabel('board size $N$'); a2.set_ylabel(r'$\rho/\rho_{\rm unif}$'); a2.set_ylim(5e-3,4e2); a2.legend(frameon=False,loc='upper left',fontsize=6); a2.set_title('(c) corner scaling (dashed: theory)')
 save(fig,'fig2_single')
 # ---------- Fig 3 mutilated ----------
-fig=plt.figure(figsize=(7,4.2)); gs=fig.add_gridspec(2,3,hspace=0.45,wspace=0.3)
-a=fig.add_subplot(gs[0,0]); b=fig.add_subplot(gs[0,1]); c=fig.add_subplot(gs[0,2])
-im=heat(a,D['mut96']['data'],1.5,'(a) exact, $N=96$'); heat(b,D['mut96']['theory'],1.5,'(b) Coulomb gas')
-fig.colorbar(im,ax=[a,b],fraction=0.03,pad=0.02).set_label(r'$\rho/\rho_{\rm unif}$')
+fig=plt.figure(figsize=(7,4.3)); gs=fig.add_gridspec(2,4,width_ratios=[1,1,0.05,1.25],hspace=0.5,wspace=0.18)
+a=fig.add_subplot(gs[0,0]); b=fig.add_subplot(gs[0,1]); cax=fig.add_subplot(gs[0,2]); c=fig.add_subplot(gs[0,3])
+im=heat(a,D['mut96f']['data'],2.0,'(a) exact, $N=96$'); heat(b,D['mut96f']['theory'],2.0,'(b) Coulomb gas')
+nb=len(D['mut96f']['data'])
+for _a in (a,b): mark_removed(_a,-0.5,-0.5,'a1',1.5,-2.6,'left'); mark_removed(_a,nb-0.5,nb-0.5,'h8',-1.5,2.6,'right')
+fig.colorbar(im,cax=cax).set_label(r'$\rho/\rho_{\rm unif}$')
+c.set_position([c.get_position().x0+0.14,c.get_position().y0,c.get_position().width-0.14,c.get_position().height])
 bins=np.array(D['mut96']['bins']); mid=(bins[1:]+bins[:-1])/2; w=bins[1]-bins[0]
 c.bar(mid,D['mut96']['hd'],width=w*0.85,color=C1,alpha=0.55,label='exact'); c.plot(mid,D['mut96']['ht'],'o',color=C2,ms=3.5,label='theory')
-c.set_xlabel('defect separation $/N$'); c.set_ylabel('probability'); c.legend(frameon=False); c.set_title('(c) two-defect separation')
-d=fig.add_subplot(gs[1,0:2]); mc=np.array(D['mutcorner'])
+c.set_xlabel('defect separation $/N$'); c.set_ylabel('probability'); c.set_ylim(0,0.19); c.legend(frameon=False,loc='upper right',fontsize=6,handlelength=1.2); c.set_title('(c) two-defect separation')
+d=fig.add_subplot(gs[1,0:3]); mc=np.array(D['mutcorner'])
 loglog_series(d,mc[:,0],mc[:,1],C2,r'next to removed a1 ($+3/4$)',0.75); loglog_series(d,mc[:,0],mc[:,2],C1,r'corner h1 ($-1/4$)',-0.25)
 d.set_xlabel('$N$'); d.set_ylabel(r'$\rho/\rho_{\rm unif}$'); d.legend(frameon=False); d.set_title('(d) corner scaling, $N=8$–$96$')
-e=fig.add_subplot(gs[1,2]); mp_=D['mutprof']; e.plot(mp_['r'],mp_['d'],'o',color=C1,ms=3.5,label='exact'); e.plot(mp_['r'],mp_['t'],'-',color=C2,label='theory')
+e=fig.add_subplot(gs[1,3]); mp_=D['mutprof']; e.plot(mp_['r'],mp_['d'],'o',color=C1,ms=3.5,label='exact'); e.plot(mp_['r'],mp_['t'],'-',color=C2,label='theory')
 e.set_xscale('log'); e.set_xlabel('distance $r$'); e.set_ylabel('conditional density'); e.legend(frameon=False); e.set_title('(e) around a central defect')
 save(fig,'fig3_mutilated')
 # ---------- Fig 4 odd board ----------
-fig,axs=plt.subplots(1,3,figsize=(7,2.3),gridspec_kw=dict(width_ratios=[1,1,1.3],wspace=0.3))
-im=heat(axs[0],D['odd63']['data'],1.3,'(a) exact, $63\\times63$',0.7); heat(axs[1],D['odd63']['theory'],1.3,r'(b) $\rho\propto R^{1/4}$',0.7)
-sq=np.array(D['triratio']['sq']); loglog_series(axs[2],sq[:,0],sq[:,1],C3,'corner/centre',-0.25)
-axs[2].set_xlabel('$N$ (odd)'); axs[2].set_ylabel('corner/centre ratio'); axs[2].legend(frameon=False); axs[2].set_title('(c) slope $-1/4$')
+O=D['odd63s']; fig=plt.figure(figsize=(7,4.3)); gs=fig.add_gridspec(2,4,width_ratios=[1,1,1,0.05],hspace=0.45,wspace=0.12)
+from matplotlib.ticker import NullFormatter, FixedLocator
+a=fig.add_subplot(gs[0,0]); b=fig.add_subplot(gs[0,1]); c=fig.add_subplot(gs[0,2]); cax=fig.add_subplot(gs[0,3])
+lo,hi=0.5,1.3
+im=heat(a,np.array(O['ee'],dtype=float),hi,'(a) exact, (even,even) cells',lo)
+heat(b,np.array(O['oo'],dtype=float),hi,'(b) exact, (odd,odd) cells',lo)
+heat(c,np.array(O['tee'],dtype=float),hi,r'(c) $\rho\propto R^{1/4}$',lo)
+fig.colorbar(im,cax=cax).set_label(r'$\rho/\rho_{\rm unif}$')
+d=fig.add_subplot(gs[1,0:2]); cut=np.array(O['cut']); ev=cut[cut[:,0]%2==0]; od=cut[cut[:,0]%2==1]
+d.plot(ev[:,0],ev[:,1],'o',ms=3,color=C1,label='exact, (even,even)'); d.plot(od[:,0],od[:,1],'s',ms=3,color=C2,label='exact, (odd,odd)')
+d.plot(cut[:,0],cut[:,2],'-',color='k',lw=0.9,label=r'$\rho\propto R^{1/4}$')
+d.set_xlim(-1,63); d.set_xlabel('row $y$ along the central column'); d.set_ylabel(r'$\rho/\rho_{\rm unif}$'); d.legend(frameon=False,loc='lower center'); d.set_title('(d) cut through the centre, $N=63$')
+e=fig.add_subplot(gs[1,2:4]); sq=np.array(D['triratio']['sq']); loglog_series(e,sq[:,0],sq[:,1],C3,'corner/centre',-0.25)
+e.set_position([e.get_position().x0+0.07,e.get_position().y0,e.get_position().width-0.07,e.get_position().height])
+e.yaxis.set_major_locator(FixedLocator([0.7,0.8,0.9,1.0,1.1])); e.yaxis.set_minor_formatter(NullFormatter()); e.set_yticklabels(['0.7','0.8','0.9','1.0','1.1'])
+e.xaxis.set_major_locator(FixedLocator([7,15,31,63])); e.xaxis.set_minor_formatter(NullFormatter()); e.set_xticklabels(['7','15','31','63'])
+e.set_xlabel('$N$ (odd)'); e.set_ylabel('corner/centre ratio'); e.legend(frameon=False); e.set_title('(e) slope $-1/4$')
 save(fig,'fig4_odd')
 # ---------- Fig 5 pairs, symbol, amplitudes ----------
 from mpmath import barnesg
@@ -100,14 +120,17 @@ for r,cc,v in az['cells']:
     t=(math.log10(max(v,1e-4))+4)/4; ax.add_patch(Rectangle((cc,r),1,1,fc=cmap(min(max(t,0),1)),ec='none'))
 ax.set_xlim(0,2*n); ax.set_ylim(0,2*n); ax.set_aspect('equal'); ax.axis('off'); ax.set_title(f'(a) one defect, $n={n}$ (log scale)')
 th=np.linspace(0,2*np.pi,200); ax.plot(n+n/np.sqrt(2)*np.cos(th),n+n/np.sqrt(2)*np.sin(th),'--',c=C2,lw=0.7)
+ax.add_patch(Rectangle((0,n),1,1,fc=C2,ec='k',lw=0.4,zorder=6)); ax.add_patch(Circle((0.5,n+0.5),2.2,fc='none',ec=C2,lw=0.9,zorder=6))
+ax.annotate('removed\ntip',xy=(-1.6,n+1.6),xytext=(-6.5,n+8),color=C2,fontsize=6,ha='center',arrowprops=dict(arrowstyle='-',color=C2,lw=0.6))
+ax.set_xlim(-7,2*n)
 pr=D['azprof']; nn=pr['n']; ks=np.arange(1,nn+1)
 from math import comb
 tail=[sum(comb(nn,m) for m in range(k,nn+1))/2**nn for k in ks]; pmf=[comb(nn-1,k-1)/2**nn for k in ks]
 axs[1].plot(ks,pr['sw'],'o',ms=2.5,color=C1,label='adjacent side (exact)'); axs[1].plot(ks,tail,'-',color=C1,lw=0.8,label=r'$P(\mathrm{Bin}(n,\frac{1}{2})\geq k)$')
 axs[1].plot(ks,np.array(pr['ne'])*10,'s',ms=2.5,color=C2,label=r'far side $\times10$'); axs[1].plot(ks,np.array(pmf)*10,'-',color=C2,lw=0.8,label=r'$\binom{n-1}{k-1}2^{-n}\times10$')
-axs[1].set_xlabel('position $k$ along the side'); axs[1].set_ylabel('weight'); axs[1].legend(frameon=False,fontsize=5.5,loc='center right'); axs[1].set_title(f'(b) exact boundary laws, $n={nn}$')
+axs[1].set_xlabel('position $k$ along the side'); axs[1].set_ylabel('weight'); axs[1].set_xlim(-1,66); axs[1].legend(frameon=False,fontsize=5.5,loc='upper right',handlelength=1.2); axs[1].set_title(f'(b) exact boundary laws, $n={nn}$')
 m=np.array(D['azmass']); loglog_series(axs[2],m[:,0],1-m[:,1],C1,'off the adjacent side',-1); loglog_series(axs[2],m[:,0],m[:,3],C2,'interior'); loglog_series(axs[2],m[:,0],m[:,2],C3,'far side')
-axs[2].set_xlabel('$n$'); axs[2].set_ylabel('total weight'); axs[2].legend(frameon=False,fontsize=6,loc='lower left'); axs[2].minorticks_off(); axs[2].set_title('(c) boundary-layer trapping')
+axs[2].set_xlabel('$n$'); axs[2].set_ylabel('total weight'); axs[2].legend(frameon=False,fontsize=6,loc='lower left'); axs[2].minorticks_off(); axs[2].set_xticks([int(v) for v in m[:,0]][::2]); axs[2].set_xticklabels([str(int(v)) for v in m[:,0]][::2]); axs[2].set_title('(c) boundary-layer trapping')
 save(fig,'fig6_aztec')
 # ---------- Fig 7 Aztec mu ----------
 mu=D['mu']; fig,axs=plt.subplots(1,3,figsize=(7,2.35),gridspec_kw=dict(wspace=0.35))

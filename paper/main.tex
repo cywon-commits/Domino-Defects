@@ -107,13 +107,13 @@ For a white defect next to the removed corner a1 ($\theta=\pi/2$, $q_c=3/4$), th
 
 \begin{figure*}[t]
 \includegraphics[width=\textwidth]{figs/fig2_single.pdf}
-\caption{A single removed corner. (a) Exact defect density on a $64\times64$ board with a1 removed, averaged over $2\times2$ blocks and normalized to the uniform value. (b) The parameter-free Coulomb-gas prediction, Eq.~\eqref{eq:density}, computed with the Jacobi-elliptic map of the square. (c) Density at three special cells versus board size (exact, symbols), compared with the power laws predicted by Eq.~\eqref{eq:gamma} (dashed). The rms deviation between (a) and (b) is $0.9\%$ at $N=128$ and decreases as $1/N$.}
+\caption{A single removed corner. (a) Exact defect density on a $64\times64$ board with a1 removed, averaged over $2\times2$ blocks and normalized to the uniform value. (b) The parameter-free Coulomb-gas prediction, Eq.~\eqref{eq:density}, computed with the Jacobi-elliptic map of the square. (c) Density at three special cells versus board size (exact, symbols), compared with the power laws predicted by Eq.~\eqref{eq:gamma} (dashed). The rms deviation between (a) and (b) is $0.9\%$ at $N=128$ and decreases as $1/N$. The orange square marks the removed cell a1.}
 \label{fig:single}
 \end{figure*}
 
 \begin{figure*}[t]
 \includegraphics[width=\textwidth]{figs/fig3_mutilated.pdf}
-\caption{The mutilated chessboard (corners a1 and h8 removed; two white defects). (a,b) Exact marginal density at $N=96$ compared with the two-defect Coulomb gas. (c) Distribution of the defect separation. (d) Corner scaling for $N=8$--$96$; dashed lines show the slopes predicted by Eq.~\eqref{eq:gamma}. (e) Conditional density around a defect fixed at the centre. All theory curves are parameter free.}
+\caption{The mutilated chessboard (corners a1 and h8 removed; two white defects). (a,b) Exact marginal density at $N=96$ ($2\times2$ block averages, each block containing exactly two white cells) compared with the two-defect Coulomb gas. Orange squares mark the removed corners a1 and h8. (c) Distribution of the defect separation. (d) Corner scaling for $N=8$--$96$; dashed lines show the slopes predicted by Eq.~\eqref{eq:gamma}. (e) Conditional density around a defect fixed at the centre. All theory curves are parameter free.}
 \label{fig:mutilated}
 \end{figure*}
 
@@ -122,11 +122,11 @@ We tested Eq.~\eqref{eq:density} on even$\times$even, odd$\times$odd and odd$\ti
 
 \emph{Mutilated board} (Fig.~\ref{fig:mutilated}). The two defects are attracted by the two removed corners ($q=+3/4$ each) and repel each other. Their joint distribution, the corner scaling and the conditional density around a central defect all follow the Coulomb gas.
 
-\emph{Odd$\times$odd board} (Fig.~\ref{fig:odd}). All four corners carry $q=+1/4$. For the black defect the total boundary charge is neutral, and Eq.~\eqref{eq:density} reduces to $\rho\propto R^{1/4}$, where $R$ is the conformal radius. The defect is pushed toward the centre, and the corner-to-centre ratio decays as $N^{-1/4}$. At the lattice level, the equal probability of all even-even boundary cells follows from Temperley's bijection.
+\emph{Odd$\times$odd board} (Fig.~\ref{fig:odd}). All four corners carry $q=+1/4$. For the black defect the total boundary charge is neutral, and Eq.~\eqref{eq:density} reduces to $\rho\propto R^{1/4}$, where $R$ is the conformal radius. The defect is pushed toward the centre, and the corner-to-centre ratio decays as $N^{-1/4}$. At the lattice level, the equal probability of all even-even boundary cells follows from Temperley's bijection. The defect lives on two black sublattices, (even,even) and (odd,odd), whose weights differ near the boundary (Fig.~\ref{fig:odd}a,b,d). This staggering is a lattice effect that the continuum formula averages over: the sublattice means differ by $0.42$, $0.27$, $0.17$ and $0.10$ (in units of $\rho_{\rm unif}$) for $N=7$, $15$, $31$ and $63$, and the average of neighbouring cells of the two sublattices follows $\rho\propto R^{1/4}$ to within $3\%$ everywhere except in the outermost row.
 
 \begin{figure*}[t]
 \includegraphics[width=\textwidth]{figs/fig4_odd.pdf}
-\caption{Odd$\times$odd boards, where the boundary charge is neutral. (a) Exact defect density on a $63\times63$ board ($7\times7$ block averages). (b) Prediction $\rho\propto R^{1/4}$, where $R$ is the conformal radius. (c) Corner-to-centre ratio versus $N$, with the predicted slope $-1/4$.}
+\caption{Odd$\times$odd boards, where the boundary charge is neutral. (a,b) Exact defect density on a $63\times63$ board, shown cell by cell on the two black sublattices, (even,even) and (odd,odd), without averaging. (c) Prediction $\rho\propto R^{1/4}$, where $R$ is the conformal radius. (d) Cut along the central column: the two sublattices (symbols) bracket the prediction (line). (e) Corner-to-centre ratio versus $N$, with the predicted slope $-1/4$.}
 \label{fig:odd}
 \end{figure*}
 
@@ -201,7 +201,7 @@ Equation~\eqref{eq:thmE} is equivalent to the boundary generating function of Ch
 
 \begin{figure*}[t]
 \includegraphics[width=\textwidth]{figs/fig6_aztec.pdf}
-\caption{Aztec diamond with the west tip removed. (a) Exact defect weights for $n=24$ (log scale). The dashed line is the arctic circle. (b) Exact weights along the adjacent (south-west) and opposite edges for $n=44$ (symbols), compared with Eqs.~\eqref{eq:thmC}--\eqref{eq:thmD} (lines). (c) Total weight off the adjacent edge, in the interior and on the far edge, versus $n$.}
+\caption{Aztec diamond with the west tip removed. (a) Exact defect weights for $n=24$ (log scale). The dashed line is the arctic circle, and the circle marks the removed tip. (b) Exact weights along the adjacent (south-west) and opposite edges for $n=44$ (symbols), compared with Eqs.~\eqref{eq:thmC}--\eqref{eq:thmD} (lines). (c) Total weight off the adjacent edge, in the interior and on the far edge, versus $n$.}
 \label{fig:aztec}
 \end{figure*}
 
