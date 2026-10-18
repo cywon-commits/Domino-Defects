@@ -41,7 +41,7 @@ ax.add_patch(Circle((0,0),0.18,fc=C1,ec='k',lw=0.5)); ax.text(0.25,0.25,r'corner
 ax.annotate('',xy=(0.5,0.4),xytext=(z[0]-0.25,z[1]-0.2),arrowprops=dict(arrowstyle='->',color=C1,lw=0.8))
 ax.text(1.2,1.55,'Coulomb\nattraction',fontsize=6.5,color=C1,rotation=33)
 ax.text(3.4,3.5,r'$\rho\propto|f^\prime|^{1/4}(\mathrm{Im}f)^{1/4}\prod_c|f-f_c|^{e q_c}$',fontsize=7)
-ax.set_xlim(-4,6.3); ax.set_ylim(-3,4.4); ax.set_aspect('equal'); ax.axis('off'); ax.set_title('(b) same-sign images at a free boundary')
+ax.set_xlim(-4,6.3); ax.set_ylim(-3,4.4); ax.set_aspect('equal'); ax.axis('off'); ax.set_title('(b) same-sign images at the edge')
 save(fig,'fig1_schematic')
 # ---------- Fig 2 single corner ----------
 fig=plt.figure(figsize=(7,2.35)); gs=fig.add_gridspec(1,4,width_ratios=[1,1,0.06,1.5],wspace=0.12)
