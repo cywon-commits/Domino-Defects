@@ -235,3 +235,21 @@ Why 1/2 should be exact: type-I flakes have exactly equal defect probability on 
 (Temperley). In the continuum that requires e q_c = −1/6 at all six 120° corners, i.e. a shift of exactly
 1/2. Status: δ(+) − δ(−) = −1/2 (exact by the Temperley argument; lattice measurement −0.43…−0.55).
 A proof would come from the half-plane Kasteleyn inverse next to an armchair edge (not attempted).
+
+## 15. Prior work found after the draft (handoff 2026-10, web) — and a correction
+
+- Bulk gap electrostatics holds on ALL doubly periodic bipartite lattices (Ciucu, PAMS 145, 4931 (2017)).
+  Paper II's novelty must be boundaries, corners and mobile forced defects.
+- Corner boundary-height jumps = boundary-condition-changing operators of dimension J^2/32 (Allegra,
+  Nucl. Phys. B 894, 685 (2015)); our honeycomb edge-class shift changes the effective J at 120° corners.
+- Square→triangular interpolation (diagonal weight t) is the model of Fendley–Moessner–Sondhi (2002):
+  the perturbation gives a mass to the two Majorana fermions.
+- C_inf(t) = (1/2) sqrt( t / [2t(2+t^2) + (1+2t^2) sqrt(2+t^2)] ) (Basor–Ehrhardt, CMP 274, 427 (2007));
+  C_inf(1/2) = 1/6 exactly. Our C(80) matches to 1e-13 (3e-10 at t = 0.1).
+- Basor–Bleher (arXiv:1610.08021): for 0<t<1/2, K2 = K2(inf)[1 − e^{−n/ξ}/(2n)(C1 + (−1)^{n+1} C2 + …)],
+  ξ = 1/(2 ln η2), η2^{-2} = 2 − μ − 2 sqrt(1 − t^2 − μ), μ = sqrt(1 − 4t^2); t_c = 1/2; for t > 1/2 incommensurate.
+CORRECTION of §(Task 1 monomer decay): the rate is 2 ln η2, not 2 artanh t. With the exact C_inf the residual
+δ0 is ≤ 0.003 for 2 ln η2 but +0.006, +0.017, +0.059 for 2 artanh t at t = 0.35, 0.4, 0.45
+(data/paper2_rate_BB_test.json). At t ≤ 0.3 the two are indistinguishable at our precision.
+At t = 1/2: 2 ln η2 = ln(2+√3) exactly — our "pure exponential" closed form sits at BB's critical point,
+which their theorems exclude; that is where our t = 1/2 result is new.

@@ -19,7 +19,7 @@ entropic screening without bipartiteness and corner charges on the honeycomb lat
 \date{Draft, \today}
 
 \begin{abstract}
-In a companion paper we showed that forced defects (monomers) in square-lattice dimer coverings behave as charges of a two-dimensional Coulomb gas: every corner carries a fractional charge fixed by the jump of the boundary height, and a free boundary produces images of the same sign. Here we ask which parts of this picture are universal. We test it in three directions, using exact Pfaffian and Kasteleyn computations on regions of up to $1.5\times10^{5}$ sites. (i) Stiffness. Because defects and corner charges are both vortices of the height field, the whole density scales as $\rho_g\propto\rho_{1/2}^{\,2g}$, so every exponent is multiplied by the same factor $2g$; the corner exponent becomes $\gamma(g)=2g[(\pi/\theta)(\tfrac12+eq_c)-\tfrac14]$. (ii) Bipartiteness. Adding diagonal bonds of weight $t$ interpolates between the square and triangular lattices. The fermion gap is exactly $\kappa=\operatorname{artanh}t$ (for $t\lesssim0.6$), boundary trapping stops at $N\sim1/t$, and bulk defects deconfine with $C(r)-C_\infty\simeq(-1)^{r+1}A\,r^{-1}e^{-2\kappa r}$. An apparent exponent $\nu\approx1.26$ in the corner ratio is traced to a large $N\ln N$ correction; the true value is $\nu=1$. At $t=1/2$ the pair correlation takes the closed form $[1-(\sqrt3-2)^{|\Delta r|+|\Delta c|}]/6$. (iii) Lattice. On the honeycomb lattice, armchair boundaries give flat liquids and zig-zag boundaries freeze. The monomer winding is $w=3$, and at $60^\circ$ armchair corners the rule $q_c=-J_c/3$ holds exactly and predicts the corner exponent $\gamma=1/4$. At $120^\circ$ corners the naive rule fails. We show that the lattice boundary layer shifts the continuum boundary height by $\pm1/4$ on the two classes of armchair edges, so that $q_c=-(J_c+\sigma/2)/3$ with $\sigma=\pm1$. Fixed on hexagons, this rule predicts all eight corner exponents of armchair parallelograms blind, to within $0.05$. Same-sign images persist on armchair edges.
+In a companion paper we showed that forced defects (monomers) in square-lattice dimer coverings behave as charges of a two-dimensional Coulomb gas: every corner carries a fractional charge fixed by the jump of the boundary height, and a free boundary produces images of the same sign. Here we ask which parts of this picture are universal. We test it in three directions, using exact Pfaffian and Kasteleyn computations on regions of up to $1.5\times10^{5}$ sites. (i) Stiffness. Because defects and corner charges are both vortices of the height field, the whole density scales as $\rho_g\propto\rho_{1/2}^{\,2g}$, so every exponent is multiplied by the same factor $2g$; the corner exponent becomes $\gamma(g)=2g[(\pi/\theta)(\tfrac12+eq_c)-\tfrac14]$. (ii) Bipartiteness. Adding diagonal bonds of weight $t$ interpolates between the square and triangular lattices, where the bulk monomer correlation is known exactly. At the boundary, trapping stops at $N\sim1/t$ and the saturated corner ratio depends on the corner angle; an apparent exponent $\nu\approx1.26$ in the corner ratio is traced to a large $N\ln N$ correction, the true value being $\nu=1$. At the critical point $t=1/2$, which the existing theorems exclude, the pair correlation takes the closed form $[1-(\sqrt3-2)^{|\Delta r|+|\Delta c|}]/6$. (iii) Lattice. On the honeycomb lattice, armchair boundaries give flat liquids and zig-zag boundaries freeze. The monomer winding is $w=3$, and at $60^\circ$ armchair corners the rule $q_c=-J_c/3$ holds exactly and predicts the corner exponent $\gamma=1/4$. At $120^\circ$ corners the naive rule fails. We show that the lattice boundary layer shifts the continuum boundary height by $\pm1/4$ on the two classes of armchair edges, so that $q_c=-(J_c+\sigma/2)/3$ with $\sigma=\pm1$. Fixed on hexagons, this rule predicts all eight corner exponents of armchair parallelograms blind, to within $0.05$. Same-sign images persist on armchair edges.
 \end{abstract}
 
 \maketitle
@@ -35,6 +35,8 @@ In the companion paper (Paper I)~\cite{PaperI} we showed, for the square lattice
 \label{eq:rhoI}
 \end{equation}
 where $f$ maps the region onto the upper half plane and $e=\pm1$ is the defect charge, reproduced exact distributions without adjustable parameters.
+
+Much of the bulk side of this picture is established. Ciucu and co-workers proved that fixed gaps interact by two-dimensional electrostatics, first for lozenge tilings~\cite{Ciucu2010}, then on the square lattice~\cite{Ciucu2014,Ciucu2016} and on all doubly periodic bipartite lattices in the liquid phase~\cite{Ciucu2017}; near boundaries the image of a gap keeps its sign at constrained boundaries and reverses it at free ones~\cite{CiucuKrattenthaler2011,Ciucu2015,CiucuFischer2015}. The boundary-height jumps at corners were identified by Allegra as boundary-condition-changing operators of dimension $J^2/32$~\cite{Allegra2015}. For non-bipartite lattices, the monomer correlation of the square-to-triangular interpolation is known exactly~\cite{FendleyMoessnerSondhi2002,BasorEhrhardt2007,BasorBleher2016}. Bulk universality is therefore not in question here; what we ask concerns corners, boundaries, and defects that are free to move.
 
 The present paper asks which parts of this structure are universal. We test it in three directions. The stiffness $g$ can be changed by interactions; bipartiteness can be broken by diagonal bonds; and the lattice can be changed from square to honeycomb at fixed stiffness. The results are organized around a single question for each direction: what survives, and what replaces what does not.
 
@@ -99,14 +101,18 @@ $t$ & corner $A$ ($120^\circ$) & corner $B$ ($60^\circ$)\\ \hline
 \end{table}
 
 \subsection{Deconfinement and the decay of pair correlations}
-Figure~\ref{fig:pair}(a) shows the bulk pair function $C(r)=Z(\text{two monomers})/Z$. At $t=0$ it decays as a power; for $t>0$ it tends to a non-zero constant $C_\infty$ ($0.1456$, $1/6$ and $0.14943$ at $t=0.2$, $0.5$ and $1$), i.e.\ the monomers deconfine, in agreement with Fendley, Moessner and Sondhi for the triangular lattice~\cite{FendleyMoessnerSondhi2002}.
+Figure~\ref{fig:pair}(a) shows the bulk pair function $C(r)=Z(\text{two monomers})/Z$. At $t=0$ it decays as a power; for $t>0$ it tends to a non-zero constant, i.e.\ the monomers deconfine~\cite{FendleyMoessnerSondhi2002}. The limit is known in closed form~\cite{BasorEhrhardt2007},
+\begin{equation}
+C_\infty=\frac12\sqrt{\frac{t}{2t(2+t^2)+(1+2t^2)\sqrt{2+t^2}}},
+\end{equation}
+which gives $1/6$ exactly at $t=1/2$; our values at $r=80$ agree with it to $10^{-13}$ ($3\times10^{-10}$ at $t=0.1$), an independent check of the numerics.
 
 To determine how $C_\infty$ is approached we computed $C(r)$ up to $r=80$ on $256\times256$ boards ($384\times384$ for $t=0.1$), with values independent of the board size to $10^{-12}$. For $t\le0.3$,
 \begin{equation}
 C(r)-C_\infty\simeq(-1)^{r+1}A(t)\,r^{-1}e^{-2\kappa r},
 \label{eq:pair}
 \end{equation}
-where $\kappa$ is the fermion decay rate of Sec.~\ref{sec:gap}. The local exponent of $(C-C_\infty)e^{2\kappa r}$ converges to $-1.00$ [Fig.~\ref{fig:pair}(b)], and fitting the residual rate as $\alpha/r+\delta_0$ gives $\delta_0=0$ within $5\times10^{-4}$--$2\times10^{-3}$. The amplitude is $A\approx0.2$ at small $t$ and vanishes at $t=1/2$ (Sec.~\ref{sec:half}). For $t\gtrsim0.6$ the minimum of the gap moves away from $\varphi=0$ and the decay becomes incommensurately oscillating.
+with $2\kappa=2\ln\eta_2(t)$, the rate proved by Basor and Bleher for $0<t<1/2$~\cite{BasorBleher2016}; here $\eta_2^{-2}=2-\mu-2\sqrt{1-t^2-\mu}$, $\mu=\sqrt{1-4t^2}$, and $\ln\eta_2=t+O(t^3)$. Our data reproduce the $r^{-1}$ prefactor and the alternating component [Fig.~\ref{fig:pair}(b)]: with the exact $C_\infty$, the residual rate $\delta_0$ in a fit $\alpha/r+\delta_0$ vanishes within $0.003$ for $2\ln\eta_2$, while $2\operatorname{artanh}t$, which agrees with it at small $t$, leaves $\delta_0=0.006$, $0.017$ and $0.059$ at $t=0.35$, $0.4$ and $0.45$. For $t>1/2$ the two rates $\eta_{1,2}$ become complex and the decay oscillates incommensurately, as we also observe.
 
 \begin{figure*}[t]
 \centering
@@ -122,11 +128,7 @@ With a two-column unit cell the Kasteleyn symbol is
 \begin{equation}
 P(\theta,\varphi)=4\sin^2\varphi+\bigl|1-e^{-i\theta}-t\,e^{i\varphi}-t\,e^{-i\theta-i\varphi}\bigr|^2,
 \end{equation}
-which has no zero on the unit torus for $t>0$. The nearest complex zero, on the $\varphi=0$ branch, gives the decay rate per site
-\begin{equation}
-\kappa=\operatorname{artanh}t\qquad(t\lesssim0.6),
-\end{equation}
-so the screening length is $\xi_f=1/\operatorname{artanh}t$: $\nu=1$ exactly, with corrections of order $t^2/3$ [Fig.~\ref{fig:gap}(a)].
+which has no zero on the unit torus for $t>0$: the perturbation gives a mass to the two Majorana fermions of the square lattice~\cite{FendleyMoessnerSondhi2002}. The $\varphi=0$ branch of its zeros gives a decay rate $\operatorname{artanh}t$ per site [Fig.~\ref{fig:gap}(a)]; the monomer correlation length is $1/(2\ln\eta_2)\simeq1/(2t)$~\cite{BasorBleher2016}. Either way the screening length diverges as $1/t$, i.e.\ $\nu=1$.
 
 A naive scaling collapse of the corner ratio, $R(N,t)/R(N,0)=G(N/\xi)$, instead gives $\nu\approx1.26$ (the same for both corners when $N\ge53$). The resolution is an exact symmetry. Diagonal bonds join sites of the same colour, so once the monomer position is fixed the parity of the number of diagonal dimers is fixed, and $Z(-t)=\pm Z(t)$. Hence $\ln R(N,t)-\ln R(N,0)=a_2(N)t^2+O(t^4)$. We find
 \begin{equation}
@@ -148,7 +150,7 @@ At $t=1/2$ the pair function is, to $10^{-10}$ accuracy,
 \begin{equation}
 C(\Delta r,\Delta c)=\frac16\Bigl[1-(\sqrt3-2)^{|\Delta r|+|\Delta c|}\Bigr]\qquad(\Delta r\,\Delta c\ge0),
 \end{equation}
-checked along $(1,0)$, $(0,1)$, $(1,1)$ and $(1,2)$ (Fig.~\ref{fig:half}); the anti-diagonal direction $(1,-1)$ is different. The correction is a pure exponential without power-law prefactor, the hallmark of a disorder line, and its rate $\ln(2+\sqrt3)$ exceeds $2\kappa=\ln3$: the amplitude $A$ of Eq.~\eqref{eq:pair} vanishes at this point. We have no analytic derivation yet.
+checked along $(1,0)$, $(0,1)$, $(1,1)$ and $(1,2)$ (Fig.~\ref{fig:half}); the anti-diagonal direction $(1,-1)$ is different. The point $t=1/2$ is the critical value at which the two rates $\eta_1,\eta_2$ of Basor and Bleher merge, and it is excluded from their theorems~\cite{BasorBleher2016}. Their rate gives $\eta_2^{-2}=2-\sqrt3$ there, i.e.\ $2\ln\eta_2=\ln(2+\sqrt3)$, which is exactly the rate of our closed form, and the $C_\infty=1/6$ of Basor and Ehrhardt fixes its constant. What the closed form adds is that at the critical point the $r^{-1}$ prefactor disappears and the correction is a pure exponential at all distances. We have no derivation of it yet.
 
 \begin{figure}[t]
 \centering
@@ -162,7 +164,7 @@ checked along $(1,0)$, $(0,1)$, $(1,1)$ and $(1,2)$ (Fig.~\ref{fig:half}); the a
 \label{sec:honey}
 %==================================================================
 \subsection{Heights, flat regions and forced defects}
-Honeycomb dimers are lozenge tilings, for which Ciucu established the bulk Coulomb law of holes~\cite{Ciucu2010}. In Thurston units (an empty edge contributes $+1$ and a dimer $-2$ around a vertex of degree three) a monomer winds the height by $\pm3$, so the corner rule generalizes to $q_c=-J_c/3$. The monomer is still a unit magnetic charge, and $g=1/2$ in the normalization of Sec.~\ref{sec:g}.
+Honeycomb dimers are lozenge tilings, for which Ciucu established the bulk Coulomb law of holes~\cite{Ciucu2010}; the bulk law holds on every doubly periodic bipartite lattice~\cite{Ciucu2017}, so the questions below concern only boundaries and corners. In Thurston units (an empty edge contributes $+1$ and a dimer $-2$ around a vertex of degree three) a monomer winds the height by $\pm3$, so the corner rule generalizes to $q_c=-J_c/3$. The monomer is still a unit magnetic charge, and $g=1/2$ in the normalization of Sec.~\ref{sec:g}.
 
 Paper I relied on regions whose limit shape is flat~\cite{KenyonOkounkovSheffield}. In brick-wall form the honeycomb is the square lattice with one of the four dimer types missing, so its slope polygon is a triangle, and the zero tilt forced by an axis-parallel rectangle lies on an edge of that triangle. Flat liquids therefore need boundaries whose tilt is interior. Armchair boundaries provide them. For $D_6$-symmetric armchair flakes the local deviation of the bond probabilities from $1/3$ decreases with size (core mean $|P-1/3|=0.035$, $0.017$, $0.012$ for $R=12,20,28$), with no nearly frozen bond; zig-zag flakes, which are lozenge hexagons, freeze near the corners (Fig.~\ref{fig:flat}). (Orientation-averaged annular means hide this difference, because the $D_6$ symmetry makes each annulus average $1/3$.)
 
@@ -211,7 +213,7 @@ The corner exponents, from corner-to-centre ratios $\propto R^{-\gamma}$ (Fig.~\
 \end{figure*}
 
 \subsection{$60^\circ$ corners: a rule-independent test}
-Armchair triangles centred on an $A$ site carry one forced defect for every size ($R=6$--$59$). Their three corners are related by the $C_3$ symmetry, so neutrality alone fixes $q_c=-1/3$, whatever rule is used for $J$. The naive jump is $J=+1$ at all three corners, so $q_c=-J/3$ is exact here. Equation~\eqref{eq:gamma} with $\pi/\theta=3$ predicts $\gamma=1/4$ ($5/4$ without corner charge). The measured value is $\gamma=0.22$ from all sizes, and the local exponents of same-phase subsequences converge to it ($0.19$, $0.22$, $0.23$, $0.25$ for $R=8$, $16$, $24$, $32$, $40$). This geometry is of the type solved by Ciucu and Fischer~\cite{CiucuFischer}, whose ``zig-zag'' sides on the triangular lattice are our armchair edges; their result corresponds to $q_c=0$ and ours extends it to charged corners.
+Armchair triangles centred on an $A$ site carry one forced defect for every size ($R=6$--$59$). Their three corners are related by the $C_3$ symmetry, so neutrality alone fixes $q_c=-1/3$, whatever rule is used for $J$. The naive jump is $J=+1$ at all three corners, so $q_c=-J/3$ is exact here. Equation~\eqref{eq:gamma} with $\pi/\theta=3$ predicts $\gamma=1/4$ ($5/4$ without corner charge). The measured value is $\gamma=0.22$ from all sizes, and the local exponents of same-phase subsequences converge to it ($0.19$, $0.22$, $0.23$, $0.25$ for $R=8$, $16$, $24$, $32$, $40$). This geometry is of the type solved by Ciucu and Fischer~\cite{CiucuFischer2015}, whose ``zig-zag'' sides on the triangular lattice are our armchair edges; their result corresponds to $q_c=0$ and ours extends it to charged corners.
 
 \subsection{The edge-class shift}
 Armchair edges come in two classes by the direction of their outward normal: $0^\circ,120^\circ,240^\circ$ (class $+$) and $60^\circ,180^\circ,300^\circ$ (class $-$). A $60^\circ$ rotation exchanges the classes and the sublattices, which reverses the sign of the height. The lattice boundary layer therefore shifts the continuum boundary value by $+\delta$ on class $+$ edges and by $-\delta$ on class $-$ edges. A $120^\circ$ corner joins edges of different classes, so its effective jump is $J\pm2\delta$; a $60^\circ$ corner joins edges of the same class and is unaffected. With $2\delta=1/2$,
@@ -220,7 +222,7 @@ q_c=-\frac{J_c+\sigma_c/2}{3},
 \label{eq:rule}
 \end{equation}
 where $\sigma_c=+1$ ($-1$) if, going counterclockwise, the corner leads from a class $+$ (class $-$) edge to a class $-$ (class $+$) edge, and $\sigma_c=0$ at $60^\circ$ corners.
-For type I hexagons this gives $q_c=-1/6$ at all six corners and $\gamma=1/4$, i.e.\ the Temperleyan density $\rho\propto\mathcal R^{1/4}$ of the conformal radius; for type II it gives $+1/6$ and $-1/2$, i.e.\ $\gamma=3/4$ and $-1/4$. In both families $\sum_cq_c=-1$.
+In Allegra's language~\cite{Allegra2015} the edge-class shift changes the boundary-condition-changing operator at a $120^\circ$ corner from the one set by the lattice jump $J$ to the one set by $J\pm1/2$. For type I hexagons this gives $q_c=-1/6$ at all six corners and $\gamma=1/4$, i.e.\ the Temperleyan density $\rho\propto\mathcal R^{1/4}$ of the conformal radius; for type II it gives $+1/6$ and $-1/2$, i.e.\ $\gamma=3/4$ and $-1/4$. In both families $\sum_cq_c=-1$.
 
 \emph{Blind test.} Armchair parallelograms have two $60^\circ$ and two $120^\circ$ corners. With Eq.~\eqref{eq:rule} fixed on hexagons, we predicted their exponents before computing them (Table~\ref{tab:para}). All eight corners agree within $0.05$, while the naive rule misses every $120^\circ$ corner by $0.25$--$0.3$. Figure~\ref{fig:predmeas} collects all thirteen corners studied.
 
@@ -259,7 +261,7 @@ F2 & $300^\circ$ & $+1$ & $+0.25$ & $+0.25$ & $+0.28$\\
 \end{figure*}
 
 \subsection{Same-sign images on armchair edges}
-At the midpoint of an armchair edge, a same-sign image predicts a defect probability $\propto R^{-1/4}$ relative to the centre and a profile $\propto d^{+1/4}$ into the bulk; an opposite-sign image would give $R^{+1/4}$ and $d^{-1/4}$. We find $R^{-0.29}$ (type I) and $R^{-0.24}$ (type II), and inward slopes $+0.20$ and $+0.21$ over $2<d<R/4$, where the $\operatorname{Im}f$ factor starts to saturate (Fig.~\ref{fig:image}). Armchair edges are thus constrained boundaries in the sense of Ciucu and Krattenthaler, for which images keep their orientation, whereas free boundaries reverse it~\cite{CiucuKrattenthaler2011,Ciucu2014wedge}.
+At the midpoint of an armchair edge, a same-sign image predicts a defect probability $\propto R^{-1/4}$ relative to the centre and a profile $\propto d^{+1/4}$ into the bulk; an opposite-sign image would give $R^{+1/4}$ and $d^{-1/4}$. We find $R^{-0.29}$ (type I) and $R^{-0.24}$ (type II), and inward slopes $+0.20$ and $+0.21$ over $2<d<R/4$, where the $\operatorname{Im}f$ factor starts to saturate (Fig.~\ref{fig:image}). Armchair edges are thus constrained boundaries in Ciucu's sense, for which images keep their orientation, whereas free boundaries reverse it~\cite{CiucuKrattenthaler2011,Ciucu2015,CiucuFischer2015}.
 
 \begin{figure*}[t]
 \centering
@@ -272,7 +274,7 @@ At the midpoint of an armchair edge, a same-sign image predicts a defect probabi
 \section{Summary and outlook}
 \label{sec:summary}
 %==================================================================
-Table~\ref{tab:verdict} summarizes what survives. The corner charge remains the central object. Its value is fixed by the boundary height, but on the honeycomb lattice the relevant height is the continuum boundary value, which differs from the lattice boundary height by a class-dependent shift. Image rules follow the boundary type, as established by Ciucu for lozenge tilings. Breaking bipartiteness removes the Coulomb interaction beyond $\xi_f=1/\operatorname{artanh}t$ while leaving the lattice-scale boundary structure.
+Table~\ref{tab:verdict} summarizes what survives. The corner charge remains the central object. Its value is fixed by the boundary height, but on the honeycomb lattice the relevant height is the continuum boundary value, which differs from the lattice boundary height by a class-dependent shift. Image rules follow the boundary type, as established by Ciucu for lozenge tilings. Breaking bipartiteness removes the Coulomb interaction beyond a length of order $1/t$ while leaving the lattice-scale boundary structure.
 
 \begin{table*}[t]
 \caption{Verdicts on the universality hypotheses (this work and Paper I).}
@@ -281,10 +283,10 @@ Table~\ref{tab:verdict} summarizes what survives. The corner charge remains the 
 \begin{tabular}{p{3.2cm}p{5.4cm}p{8.2cm}}
 quantity & hypothesis & verdict\\ \hline
 corner exponent $\gamma$ & lattice-independent at $g=1/2$; scales with $g$ & confirmed at $g=1/2$ on square and honeycomb lattices (both corner angles); $g$ dependence derived, Eq.~\eqref{eq:gamma}, numerical test open\\
-image sign & set by the boundary type & same sign on armchair edges; constrained/free rule known~\cite{CiucuKrattenthaler2011,Ciucu2014wedge}\\
+image sign & set by the boundary type & same sign on armchair edges; constrained/free rule known~\cite{CiucuKrattenthaler2011,Ciucu2015,CiucuFischer2015}\\
 corner charge $q_c$ & boundary height jump / winding & honeycomb: $w=3$; exact at $60^\circ$; $120^\circ$ corners need the edge-class shift, Eq.~\eqref{eq:rule} (blind test passed)\\
 boundary layer & non-universal & confirmed; on the honeycomb it shifts the continuum boundary height by $\pm1/4$\\
-non-bipartite defects & deconfined, screened & $\xi_f=1/\operatorname{artanh}t$ exactly; $C-C_\infty\simeq(-1)^{r+1}Ar^{-1}e^{-2\kappa r}$\\
+non-bipartite defects & deconfined, screened & bulk known exactly~\cite{BasorEhrhardt2007,BasorBleher2016} and reproduced; boundary trapping stops at $N\sim1/t$ with angle-dependent saturation; closed form at the critical point $t=1/2$\\
 density scaling function & conformal map (flat) & not yet compared in full on the honeycomb\\
 $\mu$, layer cost & free-fermion models & not tested here\\
 \end{tabular}
@@ -318,8 +320,14 @@ Three directions remain open. The first is the stiffness dependence, Eq.~\eqref{
 \bibitem{Alet2005} F. Alet, J. L. Jacobsen, G. Misguich, V. Pasquier, F. Mila, and M. Troyer, Phys. Rev. Lett. \textbf{94}, 235702 (2005).
 \bibitem{Ciucu2010} M. Ciucu, Trans. Amer. Math. Soc. \textbf{362}, 4921 (2010).
 \bibitem{CiucuKrattenthaler2011} M. Ciucu and C. Krattenthaler, Commun. Math. Phys. \textbf{302}, 253 (2011).
-\bibitem{Ciucu2014wedge} M. Ciucu, arXiv:1403.0925 (2014) \chk{title and journal}.
-\bibitem{CiucuFischer} M. Ciucu and I. Fischer, arXiv (2014) \chk{identifier}.
+\bibitem{Ciucu2014} M. Ciucu, arXiv:1202.1188.
+\bibitem{Ciucu2016} M. Ciucu, Commun. Math. Phys. \textbf{344} (2016); arXiv:1405.2799.
+\bibitem{Ciucu2017} M. Ciucu, Proc. Amer. Math. Soc. \textbf{145}, 4931 (2017).
+\bibitem{Ciucu2015} M. Ciucu, Commun. Math. Phys. \textbf{334} (2015); arXiv:1403.0925.
+\bibitem{CiucuFischer2015} M. Ciucu and I. Fischer, arXiv:1405.4235.
+\bibitem{Allegra2015} N. Allegra, Nucl. Phys. B \textbf{894}, 685 (2015).
+\bibitem{BasorEhrhardt2007} E. L. Basor and T. Ehrhardt, Commun. Math. Phys. \textbf{274}, 427 (2007).
+\bibitem{BasorBleher2016} E. Basor and P. Bleher, arXiv:1610.08021 (2016).
 \bibitem{KenyonOkounkovSheffield} R. Kenyon, A. Okounkov, and S. Sheffield, Ann. Math. \textbf{163}, 1019 (2006).
 \bibitem{KenyonProppWilson} R. Kenyon, J. Propp, and D. Wilson, Electron. J. Combin. \textbf{7}, R25 (2000).
 \end{thebibliography}
