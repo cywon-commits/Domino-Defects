@@ -36,4 +36,7 @@ print('staggering amplitude (ee-oo)/(ee+oo) vs r:', np.round([s[2] for s in sm],
 rm=np.array([s[1] for s in sm]); tm=np.array([(prof[r,2]+prof[r+1,2])/2 for r in range(31)])
 print('pair-mean vs theory ratio:', np.round(rm/tm,3))
 D['odd63s']={'ee':np.round(ee,4).tolist(),'oo':np.round(oo,4).tolist(),'tee':np.round(tee,4).tolist(),'too':np.round(too,4).tolist(),'cut':np.round(prof,4).tolist()}
+# --- Aztec n=24 single defect (needs az_marg_single24.npy from aztec/az_single.py 24): keep log10(rho/rho_unif) at full precision (cells were rounded to 4 decimals) ---
+a=np.load('az_marg_single24.npy')
+D['az_single']['log10']=[[int(r),int(c),round(float(np.log10(v)),4)] for r,c,v in a]
 json.dump(D,open('../data/figdata.json','w'),allow_nan=True)

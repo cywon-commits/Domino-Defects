@@ -115,14 +115,21 @@ save(fig,'fig5_pairs')
 fig,axs=plt.subplots(1,3,figsize=(7,2.35),gridspec_kw=dict(width_ratios=[1,1.2,1.2],wspace=0.35))
 az=D['az_single']; n=az['n']; ax=axs[0]
 from kreg import aztec as _az
-for (r,cc) in _az(n): ax.add_patch(Rectangle((cc,r),1,1,fc='#f2f2f2',ec='none'))
-for r,cc,v in az['cells']:
-    t=(math.log10(max(v,1e-4))+4)/4; ax.add_patch(Rectangle((cc,r),1,1,fc=cmap(min(max(t,0),1)),ec='none'))
-ax.set_xlim(0,2*n); ax.set_ylim(0,2*n); ax.set_aspect('equal'); ax.axis('off'); ax.set_title(f'(a) one defect, $n={n}$ (log scale)')
-th=np.linspace(0,2*np.pi,200); ax.plot(n+n/np.sqrt(2)*np.cos(th),n+n/np.sqrt(2)*np.sin(th),'--',c=C2,lw=0.7)
+from matplotlib.colors import Normalize
+cmz=plt.get_cmap('YlGnBu'); nz=Normalize(-6,2)
+for r,cc,lv in az['log10']:   # each defect-sublattice cell drawn as a diamond reaching its four neighbours (no checkerboard gaps)
+    x,y=cc+0.5,r+0.5; ax.add_patch(Polygon([(x-1,y),(x,y+1),(x+1,y),(x,y-1)],closed=True,fc=cmz(nz(lv)),ec='none'))
+_reg=set(tuple(map(int,v)) for v in _az(n))
+for r in range(-2,2*n+2):
+    for cc in range(-2,2*n+2):
+        if (r,cc) not in _reg: ax.add_patch(Rectangle((cc,r),1,1,fc='white',ec='none',zorder=3))
+ax.set_xlim(-7,2*n); ax.set_ylim(-1,2*n+1); ax.set_aspect('equal'); ax.axis('off'); ax.set_title(f'(a) one defect, $n={n}$')
+th=np.linspace(0,2*np.pi,200); ax.plot(n+n/np.sqrt(2)*np.cos(th),n+n/np.sqrt(2)*np.sin(th),'--',c=C2,lw=0.7,zorder=4)
 ax.add_patch(Rectangle((0,n),1,1,fc=C2,ec='k',lw=0.4,zorder=6)); ax.add_patch(Circle((0.5,n+0.5),2.2,fc='none',ec=C2,lw=0.9,zorder=6))
 ax.annotate('removed\ntip',xy=(-1.6,n+1.6),xytext=(-6.5,n+8),color=C2,fontsize=6,ha='center',arrowprops=dict(arrowstyle='-',color=C2,lw=0.6))
-ax.set_xlim(-7,2*n)
+cax_=ax.inset_axes([0.12,-0.10,0.76,0.045]); sm=plt.cm.ScalarMappable(norm=nz,cmap=cmz)
+cb=fig.colorbar(sm,cax=cax_,orientation='horizontal'); cb.set_ticks([-6,-4,-2,0,2]); cb.ax.tick_params(labelsize=6,length=2)
+cb.set_label(r'$\log_{10}(\rho/\rho_{\rm unif})$',fontsize=6.5,labelpad=1)
 pr=D['azprof']; nn=pr['n']; ks=np.arange(1,nn+1)
 from math import comb
 tail=[sum(comb(nn,m) for m in range(k,nn+1))/2**nn for k in ks]; pmf=[comb(nn-1,k-1)/2**nn for k in ks]
