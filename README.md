@@ -22,7 +22,7 @@ gcc                                  # for the C transfer-matrix codes in dp/
 |---|---|---|
 | `dp/` | Broken-profile transfer-matrix counts in C with `__int128` (`cnt.c`, `cntf.c`, `full.c`, `one.c`, `mut.c`); Pfaffian control for the triangular lattice (`tri.c`); Python reference DP (`mut.py`) | Sec. II, VII |
 | `lattice/` | Kasteleyn machinery: sparse log-counts on boards (`kast.py`) and general regions (`kreg.py`, incl. `aztec(n)`), rectangles with strings (`rect.py`), dense-inverse board with bordered determinants (`mutil.py`), Aztec regions (`azr.py`), Coulomb-gas maps and densities (`theory.py`) | Sec. II–III |
-| `coulomb/` | Runs and analyses for single corner, mutilated board, odd boards, rectangles, holes, boundary/bulk pairs; `export.py` builds `data/figdata.json` | Sec. III, Figs. 2–5 |
+| `coulomb/` | Runs and analyses for single corner, mutilated board, odd boards, rectangles, holes, boundary/bulk pairs; `export.py` builds `data/figdata.json`, `figfix_data.py` adds the full-resolution maps of Figs. 3, 4 and 6(a) | Sec. III, Figs. 2–6 |
 | `exact/` | Exact plane Green function `G = a + b/π` (`exactG.py`); certified determinants for bulk, half plane and quadrant (`exact_bulk.py`, `exact_half.py`, `exact_quad.py`); quadrant representation and Theorem A (`thmB*.py`, `halfplane.py`, `bulk.py`, `amp.py`) | Sec. IV |
 | `symbol/` | Scalar-symbol reductions R_bulk = ½\|det c_{j−k−1}\|, R_half = ½\|det(c_{j−k−1} − c_{j+k+3})\|; Toeplitz+Hankel minors and D_r asymptotics (`th1–th3.py`, `rh1–rh2.py`) | Sec. IV B–C |
 | `aztec/` | Exact Aztec-diamond boundary/interior weights (`az_*.py`, `run_az.py`); Kuo-condensation and zipper checks for the elementary proofs (`kuo*.py`); the Chhita–Young pair formula (`r12a.py`, `r12b.py`, `r12m.py`) | Sec. V, App. A |
@@ -61,7 +61,7 @@ python3 fem_save.py house 64 0.5 && python3 tan_house.py fem_house64_0.5.pkl
 # Lozenge hexagon: LGV vs Kasteleyn, then the layer-rule test (Fig. 9, Table I)
 cd lozenge && python3 lgv2.py && python3 rate.py && python3 lozfig.py
 
-# Figures and paper
+# Figures and paper (a compiled main.pdf is included)
 cd paper && python3 mkfigs.py && latexmk -pdf main.tex
 ```
 
@@ -77,6 +77,10 @@ Typical run times are seconds to minutes on a laptop. The largest runs, such as 
 ## Status of results
 
 See Table II of the paper. It distinguishes rigorous proofs, exact arithmetic, numerical evidence and conjectures (the layer rule, Eq. 18).
+
+## Changes
+
+See `CHANGELOG.md`.
 
 ## License
 
