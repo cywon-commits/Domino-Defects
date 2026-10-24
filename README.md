@@ -20,7 +20,7 @@ gcc                                  # for the C transfer-matrix codes in dp/
 
 | Folder | Contents | Paper |
 |---|---|---|
-| `dp/` | Broken-profile transfer-matrix counts in C with `__int128` (`cnt.c`, `cntf.c`, `full.c`, `one.c`, `mut.c`); Pfaffian control for the triangular lattice (`tri.c`); Python reference DP (`mut.py`) | Sec. II, VII |
+| `dp/` | Broken-profile transfer-matrix counts in C with `__int128` (`cnt.c`, `cntf.c`, `full.c`, `one.c`, `mut.c`); transfer-matrix control for dimers on the triangular lattice (`tri.c`); Python reference DP (`mut.py`) | Sec. II, VII |
 | `lattice/` | Kasteleyn machinery: sparse log-counts on boards (`kast.py`) and general regions (`kreg.py`, incl. `aztec(n)`), rectangles with strings (`rect.py`), dense-inverse board with bordered determinants (`mutil.py`), Aztec regions (`azr.py`), Coulomb-gas maps and densities (`theory.py`) | Sec. II–III |
 | `coulomb/` | Runs and analyses for single corner, mutilated board, odd boards, rectangles, holes, boundary/bulk pairs; `export.py` builds `data/figdata.json`, `figfix_data.py` adds the full-resolution maps of Figs. 3, 4 and 6(a) | Sec. III, Figs. 2–6 |
 | `exact/` | Exact plane Green function `G = a + b/π` (`exactG.py`); certified determinants for bulk, half plane and quadrant (`exact_bulk.py`, `exact_half.py`, `exact_quad.py`); quadrant representation and Theorem A (`thmB*.py`, `halfplane.py`, `bulk.py`, `amp.py`) | Sec. IV |

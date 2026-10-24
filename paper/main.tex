@@ -247,7 +247,7 @@ As a test with no free parameter we consider a ``house'': an $N\times N$ square 
 
 \begin{figure*}[t]
 \includegraphics[width=\textwidth]{figs/fig8_house.pdf}
-\caption{House-shaped domain. (a) Limit shape ($k=N/2$): liquid (blue) and frozen phases, together with the defect path $\Gamma$ from the removed corner a1 along the straight edge to the optimal point on the staircase. (b) Predicted rate $R(x)=N^{-1}\int_\Gamma\mu\,\dd s$ versus the endpoint $x/N$ for $k=N/2$ and $N/4$ (solid), compared with the exact lattice rates (dashed) and the exact optimal position (grey band).}
+\caption{House-shaped domain. (a) Limit shape ($k=N/2$) from the finite-element solution. Grey marks frozen regions, where the slope lies on the boundary of the allowed polygon, $|h_x|+|h_y|=1$; in the liquid the shade gives the tilt $|h_x|+|h_y|$, which controls $\mu$ on the adjacent boundary. Also shown is the defect path $\Gamma$ from the removed corner a1 along the straight edge to the optimal point on the staircase. (b) Predicted rate $R(x)=N^{-1}\int_\Gamma\mu\,\dd s$ versus the endpoint $x/N$ for $k=N/2$ and $N/4$ (solid), compared with the exact lattice rates (dashed) and the exact optimal position (grey band).}
 \label{fig:house}
 \end{figure*}
 
@@ -294,11 +294,11 @@ $1.4{:}0.8{:}1$ & $(0.6,0.4)$ & $0.554$ & $0.5544$ ($1$) & $0.5534$\\
 \section{Control: no charge, no long-range boundary effect}
 \label{sec:triangle}
 %=====================================================================
-On the non-bipartite triangular lattice there is no height field. Monomers then carry only a $\mathbb Z_2$ label and no U(1) charge~\cite{FendleyMoessnerSondhi2002}. Pfaffian computations on rhombi with $60^\circ$ and $120^\circ$ corners show a boundary layer of one or two cells, beyond which the defect distribution is flat. The corner-to-centre ratio saturates instead of scaling (Fig.~\ref{fig:tri}). This contrasts with the $N^{-1/4}$ law of the odd square board and confirms that the long-range corner physics requires the emergent charge.
+On the non-bipartite triangular lattice there is no height field. Monomers then carry only a $\mathbb Z_2$ label and no U(1) charge~\cite{FendleyMoessnerSondhi2002}. Exact transfer-matrix counts for dimers on the bonds of the triangular lattice, on rhombi with $60^\circ$ and $120^\circ$ corners, show a boundary layer of one or two cells, beyond which the defect distribution is flat. The corner-to-centre ratio saturates instead of scaling (Fig.~\ref{fig:tri}). This contrasts with the $N^{-1/4}$ law of the odd square board and confirms that the long-range corner physics requires the emergent charge.
 
 \begin{figure*}[t]
 \includegraphics[width=0.85\textwidth]{figs/fig10_triangular.pdf}
-\caption{Control on the triangular lattice. (a) Monomer probability on a $13\times13$ rhombus (normalized to uniform). (b) Corner-to-centre ratio versus size: saturation for the triangular lattice ($60^\circ$, $120^\circ$) against the power law $N^{-1/4}$ of the square lattice.}
+\caption{Control on the triangular lattice. (a) Monomer probability on a $13\times13$ rhombus of the triangular lattice (normalized to uniform). Here the dimers cover bonds between sites of the triangular lattice, so each site is drawn as its hexagonal cell; this differs from the lozenge tilings of Sec.~\ref{sec:mu}, which are dimers on the honeycomb lattice and are bipartite. (b) Corner-to-centre ratio versus size: saturation for the triangular lattice ($60^\circ$, $120^\circ$) against the power law $N^{-1/4}$ of the square lattice.}
 \label{fig:tri}
 \end{figure*}
 
