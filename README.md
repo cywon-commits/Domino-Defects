@@ -1,8 +1,8 @@
-# Electrostatics of forced defects in dimer coverings — code
+# Forced defects in dimer coverings — code
 
 Code and data behind the paper
 
-> C. Won, *Electrostatics of forced defects in dimer coverings: corner charges, image charges, and boundary chemical potentials* (manuscript in `paper/`).
+> C. Won, *Forced defects in dimer coverings: corner charges, boundary chemical potential, and trapping at frozen edges* (manuscript in `paper/`).
 
 All numbers in the paper come from **exact** computations (transfer matrices, Kasteleyn determinants, LGV determinants, certified ball arithmetic), not Monte Carlo. Every script is small and self-contained; results are printed to stdout and/or written as JSON next to the script.
 
