@@ -253,3 +253,24 @@ CORRECTION of §(Task 1 monomer decay): the rate is 2 ln η2, not 2 artanh t. Wi
 (data/paper2_rate_BB_test.json). At t ≤ 0.3 the two are indistinguishable at our precision.
 At t = 1/2: 2 ln η2 = ln(2+√3) exactly — our "pure exponential" closed form sits at BB's critical point,
 which their theorems exclude; that is where our t = 1/2 result is new.
+
+## 16. Trapping of a forced defect by a fixed charge: edge vs interior (paper2/trapping/)
+
+Prediction (Gaussian theory): near a fixed charge q the defect density is rho ~ d^gamma with
+  interior: gamma = g e q            (g=1/2: e q/2)
+  straight edge (theta = pi): gamma = 2g(1/4 + e q)   (g=1/2: 1/4 + e q; the edge charge coincides with its
+  image, so the coupling is doubled, and +1/4 is the defect's own image repulsion).
+Bound iff gamma < -2 (the near-region weight int r^gamma r dr converges at large r):
+  interior g|q| > 2 (g=1/2: |q| > 4);  edge e q < -9/4 at g=1/2 (|q| >= 3).
+Test (square lattice, g = 1/2, exact Kasteleyn with strings, checked against brute force on 83
+configurations): fixed charge = one black cell (q=1) or a plus-shaped hole (4 black + 1 white, q=3; two
+far white holes restore one mobile white defect, e=-1). L = 16..80. P_near = P(defect within distance 3).
+  interior q=1  pred P ~ L^-1.50   local slopes -1.44 ... -1.48;  profile slope -0.50 (pred -0.50)
+  edge     q=1  pred P ~ L^-1.25   local slopes -1.27 ... -1.25;  profile slope -0.68 (pred -0.75)
+  interior q=3  pred P ~ L^-0.50   local slopes -0.72 ... -0.60; a L^-1/2 (1+b/L) fits to 0.7%;
+                                   profile slope -1.47 (pred -1.50)  -> DELOCALIZED
+  edge     q=3  pred bound          P = 0.51, 0.46, 0.44, 0.41, 0.40, 0.39 -> P_inf = 0.34 (fit
+                                   P_inf + b L^-0.75)  -> BOUND; profile slope -2.3 (pred -2.75, lattice-scale)
+Verdict: the same charge binds the defect at the edge but not in the interior, as predicted by the image
+doubling. Stiffness dependence of the thresholds (binding of a single vacancy for g > 2) remains a
+Monte Carlo prediction.
