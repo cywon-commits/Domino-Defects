@@ -274,3 +274,41 @@ far white holes restore one mobile white defect, e=-1). L = 16..80. P_near = P(d
 Verdict: the same charge binds the defect at the edge but not in the interior, as predicted by the image
 doubling. Stiffness dependence of the thresholds (binding of a single vacancy for g > 2) remains a
 Monte Carlo prediction.
+
+## 17. Derivation of the t = 1/2 closed form (paper2/half_point/)
+
+Basor–Bleher: K2(n) = (1/2) sqrt(det T_n(phi)), phi = sigma(z) [[p(z), q(z)], [q(1/z), p(1/z)]],
+sigma = 1/[(1 - 2t cos x + t^2) sqrt(t^2 + sin^2 x + sin^4 x)].
+With u = sin^2 x the radicand is u^2 + u + t^2, discriminant 1 - 4t^2 = mu^2.
+- t < 1/2: two distinct roots -> square-root branch points at z^2 = eta_1^{±2}, eta_2^{±2}. The Wiener–Hopf
+  factors inherit them, the Fourier coefficients go as k^{-1/2} eta_2^{-k}, and the Borodin–Okounkov trace gives
+  e^{-2n ln eta_2}/n. This is the origin of the r^{-1} prefactor (resolves the "why not r^{-2}" question).
+- t = 1/2: mu = 0, the roots merge, u^2 + u + 1/4 = (u + 1/2)^2. The square root becomes rational, so the
+  whole symbol is rational (poles at z^2 = 2 ± sqrt3 and z = 2, 1/2). For a rational symbol det T_n is a finite
+  exponential polynomial in n, i.e. a pure exponential decay with no power-law prefactor.
+  Rate: z^2 = 2 + sqrt3 = eta^2, so q = sqrt3 - 2 = -eta^{-2}; 2 ln eta = ln(2 + sqrt3). Also
+  sqrt(2 + t^2) = 3/2 is rational, giving C_inf = 1/6 from Basor–Ehrhardt.
+- Verification (40 digits, exact Fourier coefficients of the rational symbol): K2(n) = [1 - (sqrt3 - 2)^{n+1}]/6
+  for n = 1..30 (max deviation 1.4e-41). D_n = 4 K2^2 satisfies an order-3 linear recurrence (roots 1, q, q^2):
+  the order-4 Hankel determinant of D_n vanishes (1e-65), the order-3 one does not. BB's geometry (adjacent
+  rows, n apart) is Manhattan distance n + 1, matching our Pfaffian result C = [1 - (sqrt3-2)^d]/6.
+- Crossover near t = 1/2: the BB amplitude carries 1/sqrt(eta_1^2 - eta_2^2), and ln(eta_1/eta_2) ~ mu ~
+  (1/2 - t)^{1/2}. The 1/n form holds only for n >> l_x ~ (1/2 - t)^{-1/2}; l_x diverges at t = 1/2, where the
+  pure exponential takes over. RETRACTION: the earlier "amplitude A vanishes at t = 1/2" was an artifact of
+  fitting with the wrong rate 2 artanh t.
+
+## 18. The armchair edge-class shift: symmetry + exact infinite strip (paper2/armchair_shift/)
+
+- Symmetry: a 180° rotation about a hexagon centre exchanges A and B and maps a class + armchair edge to a
+  class - edge, so delta_+ = -delta_- exactly (confirmed numerically to 6 digits). Only 2 delta is free.
+- Exact infinite strip: armchair strip |x| <= R, infinite along the edge (period 3). Fourier in k along the
+  edge; each k is a finite matrix; bond probabilities by trapezoid integration (vertex sums = 1 to 1e-12,
+  k-convergence checked by doubling). Mean face heights from <dh> = 1 - 3P (curl 2e-15); delta = interior
+  linear profile extrapolated to the edge minus the boundary-midpoint height m.
+    R = 12, 20, 30, 40: delta_+ - delta_- = -0.402, -0.484, -0.484, -0.489
+    R = 60, 120, 240 (fit window 0.15R..0.45R): -0.504..-0.506, -0.5019, -0.4995;  R = 80: -0.4988..-0.5000
+  Deviations from -1/2 shrink as ~1/R (0.005, 0.002, 0.0005). Result: 2 delta = 1/2 to 5e-4 (previous finite
+  strips: ±0.06).
+- Exactness: type-I hexagons have exactly equal boundary probabilities (Temperley), which in the continuum
+  requires e q_c = -1/6 at all six 120° corners, i.e. 2 delta = 1/2 exactly.
+- Still open: a closed-form half-plane evaluation (the k-resolved strip is a 1D Wiener–Hopf problem).

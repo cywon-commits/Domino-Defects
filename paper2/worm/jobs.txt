@@ -1,0 +1,12 @@
+-1.0 bulk 64
+-1.0 edge 0
+-0.7 bulk 64
+-0.7 edge 0
+-0.4 bulk 64
+-0.4 edge 0
+0 bulk 64
+0 edge 0
+0.5 bulk 64
+0.5 edge 0
+1.0 bulk 64
+1.0 edge 0
