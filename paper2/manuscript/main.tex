@@ -25,9 +25,16 @@ In a companion paper we showed that forced defects (monomers) in square-lattice 
 \maketitle
 
 %==================================================================
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figs/fig00_overview.pdf}
+\caption{The problem and its electrostatic answer. (a) An $8\times8$ board with one corner removed has one more white than black cell, so every dimer covering leaves one white cell uncovered (a sample covering; grey squares mark black cells). Where is that cell? (b) Exact probability of the uncovered cell on a $24\times24$ board with the same corner removed. It is drawn to the removed corner and pushed away from the opposite one, as a charge $e=-1$ would be in the field of fixed charges at the corners ($q_c=+\tfrac34$ at the removed corner, $\pm\tfrac14$ at the others), with each edge acting as a mirror that produces an image of the same sign. (c) The three controls studied here: the stiffness of the height field, changed by interactions between dimers; bipartiteness, broken by diagonal bonds; and the lattice, changed to the honeycomb.}
+\label{fig:overview}
+\end{figure*}
+
 \section{Introduction}
 %==================================================================
-Close-packed dimer models are the simplest lattice systems whose long-distance physics is a free field~\cite{Kasteleyn1961,TemperleyFisher1961,FisherStephenson1963,Kenyon2000,Kenyon2001,Nienhuis1984,Henley2010}. The height field $h$ that encodes the close-packing constraint fluctuates like a Gaussian free field, and monomers are its vortices. When the region cannot be tiled completely, monomers are forced to appear, and the question of where they sit becomes a problem of two-dimensional electrostatics.
+Close-packed dimer models are the simplest lattice systems whose long-distance physics is a free field~\cite{Kasteleyn1961,TemperleyFisher1961,FisherStephenson1963,Kenyon2000,Kenyon2001,Nienhuis1984,Henley2010}. The height field $h$ that encodes the close-packing constraint fluctuates like a Gaussian free field, and monomers are its vortices. When the region cannot be tiled completely, monomers are forced to appear [Fig.~\ref{fig:overview}(a)], and the question of where they sit becomes a problem of two-dimensional electrostatics [Fig.~\ref{fig:overview}(b)].
 
 In the companion paper (Paper I)~\cite{PaperI} we showed, for the square lattice at the free-fermion point, that this electrostatics has three ingredients. First, every corner of the region carries a fractional charge $q_c=-J_c/4$, where $J_c$ is the jump of the boundary height at the corner. Second, a free boundary acts as a mirror that produces images of the same sign. Third, frozen boundaries add a boundary chemical potential. With these rules a conformally covariant density formula,
 \begin{equation}
