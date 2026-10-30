@@ -312,3 +312,13 @@ With u = sin^2 x the radicand is u^2 + u + t^2, discriminant 1 - 4t^2 = mu^2.
 - Exactness: type-I hexagons have exactly equal boundary probabilities (Temperley), which in the continuum
   requires e q_c = -1/6 at all six 120° corners, i.e. 2 delta = 1/2 exactly.
 - Still open: a closed-form half-plane evaluation (the k-resolved strip is a 1D Wiener–Hopf problem).
+
+## 20. Standalone restructure: new checks (paper2/hexdens, paper2/mono)
+- Full density on armchair hexagons (Schwarz–Christoffel map, no fit): rms dev. of ln rho over the interior
+  edge-class rule 3–6%, naive 7–14% (type I R=28,36; type II R=27,38); insensitive to apothem R..R+1.
+- Corner exponents with fit errors (data/paper2_corner_exponents_err.json): the four discriminating
+  parallelogram corners lie within 1.2 sigma of the edge-class rule, 5–11 sigma from naive.
+- MC corner test (mono.c, single forced defect moved by dimer shifts; checked vs enumeration on 5x5 to 1e-4):
+  odd L=17..65, corner/centre ~ L^-gamma, pred gamma = g/2 (q=-1/4 at 90 deg).
+  beta v = 0.5, 0, -0.5, -1: gamma(L>=25) = 0.116, 0.239, 0.461, 0.86 vs g/2 = 0.121, 0.253, 0.484, 0.940.
+  Same 4–9% offset at beta v=0 (exact 1/4): region-averaging bias. gamma/g = 0.47 ± 0.01 for all g.
