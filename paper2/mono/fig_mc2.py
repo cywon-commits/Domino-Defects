@@ -29,10 +29,12 @@ for i,J in enumerate(['0.5','0','-0.5','-1.0']):
 ax[2].set_xscale('log'); ax[2].set_yscale('log'); ax[2].set_xlabel('L (odd board)'); ax[2].set_ylabel('corner / centre'); ax[2].legend(frameon=False,fontsize=6.5,loc='lower left'); ax[2].set_title('(c) corner exponent',fontsize=9)
 for a in ax[2:]:
     a.xaxis.set_minor_formatter(NullFormatter()); a.xaxis.set_major_locator(FixedLocator([16,32,64])); a.xaxis.set_major_formatter(FixedFormatter(['16','32','64']))
-for k,(key,lab,c,mk) in enumerate([('edge_-1.0','edge, g = 1.88 (bound?)',cols[5],'s'),('bulk_-1.0','interior, g = 1.88',cols[5],'o'),('edge_-0.4','edge, g = 0.84',cols[2],'s'),('bulk_-0.4','interior, g = 0.84',cols[2],'o')]):
+for k,(key,lab,c,mk) in enumerate([('edge_-1.0','edge, g = 1.88',cols[5],'s'),('bulk_-1.0','interior, g = 1.88',cols[5],'o'),('edge_-0.4','edge, g = 0.84',cols[2],'s'),('bulk_-0.4','interior, g = 0.84',cols[2],'o')]):
     d=mc['vac'].get(key)
     if not d: continue
     L=np.array(d['L']); P=np.array(d['P']); e=np.array(d['err']); Rr=(1-P)/P; Re=e/P**2
     ax[3].errorbar(L,Rr,yerr=Re,fmt=mk,color=c,mfc=c if mk=='o' else 'none',ms=4,capsize=2,label=lab,ls='-',lw=0.8)
 ax[3].set_xscale('log'); ax[3].set_yscale('log'); ax[3].set_xlabel('L'); ax[3].set_ylabel(r'$R=(1-P)/P$'); ax[3].legend(frameon=False,fontsize=7,loc='upper left'); ax[3].set_title('(d) vacancy: far/near weight',fontsize=9)
+for a in ax[2:]:
+    a.xaxis.set_minor_formatter(NullFormatter()); a.xaxis.set_major_locator(FixedLocator([16,32,64])); a.xaxis.set_major_formatter(FixedFormatter(['16','32','64']))
 plt.tight_layout(); plt.savefig(f'{R}/paper2/manuscript/figs/fig_mc.pdf'); plt.savefig(f'{S}/fig_mc2.png',dpi=110)

@@ -322,3 +322,19 @@ With u = sin^2 x the radicand is u^2 + u + t^2, discriminant 1 - 4t^2 = mu^2.
   odd L=17..65, corner/centre ~ L^-gamma, pred gamma = g/2 (q=-1/4 at 90 deg).
   beta v = 0.5, 0, -0.5, -1: gamma(L>=25) = 0.116, 0.239, 0.461, 0.86 vs g/2 = 0.121, 0.253, 0.484, 0.940.
   Same 4–9% offset at beta v=0 (exact 1/4): region-averaging bias. gamma/g = 0.47 ± 0.01 for all g.
+
+## 21. R6 revision after review (2026-11-03)
+- MC ergodicity: slides alone are not ergodic (Bouttier et al. 2007). mono2.c adds plaquette flips, removed sites,
+  block errors; checked vs enumeration (5x5, 4x4+hole, 6x4+hole, beta v=±1) within 1.3 sigma.
+- Corner exponent (odd boards, L=25-65): beta v=0.5,0,-0.5,-1: 0.116(5),0.253(6),0.464(8),0.853(23) vs g/2 0.121,0.253,0.484,0.940.
+  Exact estimator at beta v=0 (same averaging): 0.243 (L=25-65), local 0.247 at L=129.
+- Vacancy (eq=-1): beta v=-0.4 interior slopes -1.13..-1.18 (pred -1.16), edge -0.87..-0.82 (pred -0.74);
+  beta v=-1 edge slopes -0.23,-0.18,-0.12,-0.10 (-> 0, bound-like), interior -0.49 steady (pred asymptotic -0.12; crossover).
+- Representative rule: min sum_c (pi/theta_c) J_c^2 at fixed sum. Reproduces all honeycomb assignments; naive rule ties in F1.
+- Temperley corollary: uniform boundary density => e q_c = -(1 - theta_c/pi)/2, gamma = g/2 at every corner. Type I boundary
+  uniform to 1e-13, density C6 to 1e-16. Discriminating regions: type II, F1.
+- Square edges: mirror through cell centres => delta = 0 for all g. Honeycomb: mirrors swap sublattices => no constraint.
+- Strip: R>=80 mean 0.5001, std 0.0010.
+- Anti-diagonal screening at t=1/2: 1.05 per Euclidean length vs 1.32 along rows.
+- a2 fit e/c = 6.6 (A), 7.6 (B) (earlier "thirty" was wrong). Sum rule 4C(1,0)+2tC(1,1)=1 holds for Eq. (8).
+- R_inf(B, t=1/2) = sqrt(3) to 2e-13 (unexplained).

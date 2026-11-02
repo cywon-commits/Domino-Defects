@@ -34,3 +34,7 @@ Lx=64 Ly=64 J=-1 slide_acc=0.605 flip_acc=0.189
 Lx=64 Ly=64 J=-1 slide_acc=0.641 flip_acc=0.189
 Lx=64 Ly=64 J=-0.4 slide_acc=0.857 flip_acc=0.245
 Lx=64 Ly=64 J=-0.4 slide_acc=0.847 flip_acc=0.245
+Lx=65 Ly=65 J=0 slide_acc=0.993 flip_acc=0.258
+Lx=65 Ly=65 J=-1 slide_acc=0.668 flip_acc=0.189
+Lx=65 Ly=65 J=0.5 slide_acc=0.832 flip_acc=0.154
+Lx=65 Ly=65 J=-0.5 slide_acc=0.827 flip_acc=0.238
