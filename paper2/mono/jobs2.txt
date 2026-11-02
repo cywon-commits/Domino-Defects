@@ -1,0 +1,40 @@
+./mono2 16 16 -1.0 153600000 17 10 out2/vac_bulk_J-1.0_L16.bin 119
+./mono2 16 16 -1.0 153600000 18 10 out2/vac_edge_J-1.0_L16.bin 8
+./mono2 16 16 -0.4 153600000 17 10 out2/vac_bulk_J-0.4_L16.bin 119
+./mono2 16 16 -0.4 153600000 18 10 out2/vac_edge_J-0.4_L16.bin 8
+./mono2 17 17 0 173400000 17 10 out2/corner_J0_L17.bin
+./mono2 17 17 -1.0 173400000 17 10 out2/corner_J-1.0_L17.bin
+./mono2 17 17 -0.5 173400000 17 10 out2/corner_J-0.5_L17.bin
+./mono2 17 17 0.5 173400000 17 10 out2/corner_J0.5_L17.bin
+./mono2 24 24 -1.0 345600000 25 10 out2/vac_bulk_J-1.0_L24.bin 275
+./mono2 24 24 -1.0 345600000 26 10 out2/vac_edge_J-1.0_L24.bin 12
+./mono2 24 24 -0.4 345600000 25 10 out2/vac_bulk_J-0.4_L24.bin 275
+./mono2 24 24 -0.4 345600000 26 10 out2/vac_edge_J-0.4_L24.bin 12
+./mono2 25 25 0 375000000 25 10 out2/corner_J0_L25.bin
+./mono2 25 25 -1.0 375000000 25 10 out2/corner_J-1.0_L25.bin
+./mono2 25 25 -0.5 375000000 25 10 out2/corner_J-0.5_L25.bin
+./mono2 25 25 0.5 375000000 25 10 out2/corner_J0.5_L25.bin
+./mono2 32 32 -1.0 614400000 33 10 out2/vac_bulk_J-1.0_L32.bin 495
+./mono2 32 32 -1.0 614400000 34 10 out2/vac_edge_J-1.0_L32.bin 16
+./mono2 32 32 -0.4 614400000 33 10 out2/vac_bulk_J-0.4_L32.bin 495
+./mono2 32 32 -0.4 614400000 34 10 out2/vac_edge_J-0.4_L32.bin 16
+./mono2 33 33 0 653400000 33 10 out2/corner_J0_L33.bin
+./mono2 33 33 -1.0 653400000 33 10 out2/corner_J-1.0_L33.bin
+./mono2 33 33 -0.5 653400000 33 10 out2/corner_J-0.5_L33.bin
+./mono2 33 33 0.5 653400000 33 10 out2/corner_J0.5_L33.bin
+./mono2 48 48 -1.0 1382400000 49 10 out2/vac_bulk_J-1.0_L48.bin 1127
+./mono2 48 48 -1.0 1382400000 50 10 out2/vac_edge_J-1.0_L48.bin 24
+./mono2 48 48 -0.4 1382400000 49 10 out2/vac_bulk_J-0.4_L48.bin 1127
+./mono2 48 48 -0.4 1382400000 50 10 out2/vac_edge_J-0.4_L48.bin 24
+./mono2 49 49 0 1440600000 49 10 out2/corner_J0_L49.bin
+./mono2 49 49 -1.0 1440600000 49 10 out2/corner_J-1.0_L49.bin
+./mono2 49 49 -0.5 1440600000 49 10 out2/corner_J-0.5_L49.bin
+./mono2 49 49 0.5 1440600000 49 10 out2/corner_J0.5_L49.bin
+./mono2 64 64 -1.0 2457600000 65 10 out2/vac_bulk_J-1.0_L64.bin 2015
+./mono2 64 64 -1.0 2457600000 66 10 out2/vac_edge_J-1.0_L64.bin 32
+./mono2 64 64 -0.4 2457600000 65 10 out2/vac_bulk_J-0.4_L64.bin 2015
+./mono2 64 64 -0.4 2457600000 66 10 out2/vac_edge_J-0.4_L64.bin 32
+./mono2 65 65 0 2535000000 65 10 out2/corner_J0_L65.bin
+./mono2 65 65 -1.0 2535000000 65 10 out2/corner_J-1.0_L65.bin
+./mono2 65 65 -0.5 2535000000 65 10 out2/corner_J-0.5_L65.bin
+./mono2 65 65 0.5 2535000000 65 10 out2/corner_J0.5_L65.bin

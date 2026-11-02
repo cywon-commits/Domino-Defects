@@ -1,0 +1,4 @@
+./mono2 65 65 0 2535000000 65 10 out2/corner_J0_L65.bin
+./mono2 65 65 -1.0 2535000000 65 10 out2/corner_J-1.0_L65.bin
+./mono2 65 65 -0.5 2535000000 65 10 out2/corner_J-0.5_L65.bin
+./mono2 65 65 0.5 2535000000 65 10 out2/corner_J0.5_L65.bin

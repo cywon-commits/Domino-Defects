@@ -8,17 +8,23 @@ for k,(R,typ,qe,qn) in enumerate([(36,'I',[-1/6]*6,[0,-1/3]*3),(38,'II',[1/6,-1/
     hexr=np.max(np.stack([A@np.array([np.cos(np.radians(60*j)),np.sin(np.radians(60*j))]) for j in range(6)]),axis=0)
     pre=inv(Z,R+0.5); le,_=density(Z,R+0.5,qe,pre=pre); ln,_=density(Z,R+0.5,qn,pre=pre)
     m=hexr<R-3; c0=np.mean(lz[m]-le[m]); c1=np.mean(lz[m]-ln[m])
-    for lab,ang,mk in [('to 30° corner',30,'o'),('to 90° corner',90,'s'),('to edge midpoint',0,'^')]:
+    rays=[('to 30° corner',30,'o'),('to 90° corner',90,'s'),('to edge midpoint',0,'^')]
+    if typ=='I': rays=[('to any corner',30,'o'),('to edge midpoint',0,'^')]
+    for lab,ang,mk in rays:
         u=np.array([np.cos(np.radians(ang)),np.sin(np.radians(ang))]); s=A@u; perp=np.abs(A@np.array([-u[1],u[0]]))
         sel=np.where(perp<0.9)[0]; sel=sel[np.argsort(s[sel])]; sel=sel[s[sel]>0]
         x=s[sel]/(R/np.cos(np.pi/6) if ang!=0 else R)
         ax[k].plot(x,np.exp(lz[sel]-c0),mk,ms=4,color=C1 if ang==30 else (C2 if ang==90 else GR),mfc='none',mew=1.2,label='exact, '+lab)
         ax[k].plot(x,np.exp(le[sel]),'-',color=C1 if ang==30 else (C2 if ang==90 else GR),lw=1.4)
         ax[k].plot(x,np.exp(ln[sel]+c1-c0),':',color=C1 if ang==30 else (C2 if ang==90 else GR),lw=1.2)
+    if typ=='I':
+        u=np.array([0.,1.]); s_=A@u; perp=np.abs(A@np.array([-1.,0.])); sel=np.where(perp<0.9)[0]; sel=sel[np.argsort(s_[sel])]; sel=sel[s_[sel]>0]
+        ax[k].plot(s_[sel]/(R/np.cos(np.pi/6)),np.exp(ln[sel]+c1-c0),':',color=C2,lw=1.2)
+        ax[k].text(0.03,0.128,'naive rule breaks the\nsixfold symmetry (dotted:\n30° blue, 90° orange)',fontsize=8,color=GR)
     ax[k].set_xlabel('distance from centre / distance to boundary'); ax[k].set_ylabel(r'$\rho$ (common normalisation)')
-    ax[k].set_title('type %s hexagon, R = %d'%(typ,R),fontsize=11)
-ax[0].legend(frameon=False,fontsize=8,loc='lower left')
-ax[1].plot([],[],'k-',lw=1.4,label='edge-class rule'); ax[1].plot([],[],'k:',lw=1.2,label='naive rule'); ax[1].legend(frameon=False,fontsize=9,loc='upper left')
+    ax[k].set_title('(%s) type %s hexagon, R = %d'%('ab'[k],typ,R),fontsize=11)
+ax[0].legend(frameon=False,fontsize=9,loc='lower left')
+ax[1].plot([],[],'k-',lw=1.4,label='edge-class rule'); ax[1].plot([],[],'k:',lw=1.2,label='naive rule'); ax[1].legend(frameon=False,fontsize=8,loc='upper left')
 c=json.load(open('compare.json')); xs=[];
 for j,(R,typ) in enumerate([(28,'I'),(36,'I'),(27,'II'),(38,'II')]):
     rows=[r for r in c[str(R)] if r[0]==0.5 and r[2]==6]
@@ -27,5 +33,5 @@ ax[2].set_xticks(range(4)); ax[2].set_xticklabels(['I, 28','I, 36','II, 27','II,
 from matplotlib.patches import Patch
 ax[2].legend(handles=[Patch(color=C1,label='edge-class rule'),Patch(color='#c9cfd6',label='naive rule')],frameon=False,fontsize=9,loc='upper left')
 ax[2].set_ylim(0,0.11)
-ax[2].set_title('no adjustable parameter',fontsize=11)
+ax[2].set_title('(c) no adjustable parameter',fontsize=11)
 plt.tight_layout(); plt.savefig('fig_hexdens.pdf'); plt.savefig('fig_hexdens.png',dpi=110)

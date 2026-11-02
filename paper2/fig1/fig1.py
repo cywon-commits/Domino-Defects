@@ -80,9 +80,9 @@ for P in (A,B):
     mx=pr.max(1); th=np.arange(0,360,60)[pr.argmax(1)]; bd=mx>mx.max()-1.2
     k2.scatter(P[bd,0],P[bd,1],s=7,c=np.where(th[bd]%120==0,BLUE,ORANGE),zorder=3)
 k2.set_aspect('equal'); k2.autoscale_view()
-txt=[('Stiffness $g$  (dimer interactions)',r'charges fixed, coupling $\propto g$:'+'\n'+r'every exponent rescales by $2g$   (Sec. II)'),
-     ('Bipartiteness  (diagonal bonds $t$)','no height field: the force is'+'\n'+r'screened beyond $\xi\sim1/t$   (Sec. III)'),
-     ('Lattice  (honeycomb)','corner charge read from the boundary'+'\n'+r'height, shifted by $\pm\frac{1}{4}$ by edge class   (Sec. IV)')]
+txt=[('Stiffness $g$  (dimer interactions)',r'charges fixed, coupling $\propto g$:'+'\n'+r'every exponent rescales by $2g$   (Sec. IV)'),
+     ('Bipartiteness  (diagonal bonds $t$)','no height field: the force is'+'\n'+r'screened beyond $\xi\sim1/t$   (Sec. VI)'),
+     ('Lattice  (honeycomb)','corner charge read from the boundary'+'\n'+r'height, shifted by $\pm\frac{1}{4}$ by edge class   (Sec. V)')]
 for k,(h,b) in enumerate(txt):
     x=0.135+0.33*k
     fig.text(x,0.285,h.replace('  (','\n('),fontsize=8.2,fontweight='bold',color=INK,va='top',linespacing=1.2)
