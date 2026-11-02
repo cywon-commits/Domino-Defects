@@ -9,7 +9,12 @@ plt.rcParams.update({'font.family':'serif','font.size':8,'axes.labelsize':8,'axe
 C1,C2,C3,C4='#1f5f8b','#c0562b','#3a8f5c','#7a5195'
 D=json.load(open('figdata.json'))
 cmap=LinearSegmentedColormap.from_list('d',['#f7f7f7','#9ecae1','#2171b5','#08306b'])
-def save(fig,name): fig.savefig(f'../paper/figs/{name}.pdf',bbox_inches='tight'); plt.close(fig); print('saved',name)
+from matplotlib.ticker import NullFormatter as _NF
+def _nominor(fig):
+    for _a in fig.axes:
+        if _a.get_xscale()=='log': _a.xaxis.set_minor_formatter(_NF())
+        if _a.get_yscale()=='log': _a.yaxis.set_minor_formatter(_NF())
+def save(fig,name): _nominor(fig); fig.savefig(f'../paper/figs/{name}.pdf',bbox_inches='tight'); plt.close(fig); print('saved',name)
 def heat(ax,M,vmax,title,vmin=0):
     im=ax.imshow(np.array(M),origin='lower',cmap=cmap,vmin=vmin,vmax=vmax,interpolation='nearest'); ax.set_xticks([]); ax.set_yticks([]); ax.set_title(title); return im
 def mark_removed(ax,x,y,label,dx,dy,ha):
@@ -159,16 +164,21 @@ save(fig,'fig7_aztec_mu')
 # ---------- Fig 8 house ----------
 d=pickle.load(open('fem_house64_0.5.pkl','rb')); Nh=d['N']; g=d['g']; Cc=d['C']; l1=np.abs(g).sum(1)
 fig,axs=plt.subplots(1,2,figsize=(7,2.9),gridspec_kw=dict(width_ratios=[1,1.3],wspace=0.3))
-ax=axs[0]; col=np.where(l1<0.95,0.0,1.0)
-phase=np.full(len(g),0); PH={(1,0):1,(-1,0):2,(0,1):3,(0,-1):4}
-for i,(s,t) in enumerate(g):
-    if l1[i]>=0.95: phase[i]=PH.get((int(round(s)),int(round(t))),0)
-cols=np.array(['#dbe9f6','#f4a582','#92c5de','#d6d6d6','#b8e186'])
-ax.scatter(Cc[:,0],Cc[:,1],c=cols[phase],s=1.2,marker='s',linewidths=0)
+ax=axs[0]
+from matplotlib.tri import Triangulation
+from matplotlib.colors import ListedColormap, BoundaryNorm
+P_=np.asarray(d['pts']); TR=np.asarray(d['tri']); frozen=l1>=0.97
+cm8=LinearSegmentedColormap.from_list('slope',['#f3f7fb','#9ecae1','#2b6ea8']); lvl=np.where(frozen,np.nan,l1)
+tp=ax.tripcolor(Triangulation(P_[:,0],P_[:,1],TR),facecolors=np.where(frozen,0,l1),cmap=cm8,vmin=0,vmax=1,edgecolors='none')
+ax.tripcolor(Triangulation(P_[:,0],P_[:,1],TR[frozen]),facecolors=np.ones(frozen.sum()),cmap=ListedColormap(['#b8b8b8']),edgecolors='none')
+cbx=ax.inset_axes([0.08,-0.07,0.6,0.04]); cb8=fig.colorbar(tp,cax=cbx,orientation='horizontal'); cb8.set_ticks([0,0.5,1]); cb8.ax.tick_params(labelsize=6,length=2)
+cb8.set_label(r'liquid: tilt $|h_x|+|h_y|$',fontsize=6.5,labelpad=1)
+ax.add_patch(Rectangle((0.74,-0.075),0.06,0.045,transform=ax.transAxes,fc='#b8b8b8',ec='none',clip_on=False))
+ax.text(0.82,-0.052,'frozen\n($|\\nabla h|_1=1$)',transform=ax.transAxes,fontsize=6,va='center')
 k=Nh//2; xs=int(0.078*Nh)
 ax.plot([0,0,xs],[0,Nh-k,Nh-k+xs],color=C2,lw=1.6); ax.plot(0,0,'o',color=C2,ms=4); ax.plot(xs,Nh-k+xs,'o',color=C2,ms=4)
 ax.text(1.5,1.5,'a1',fontsize=7); ax.text(xs+1,Nh-k+xs+1,'optimal defect',fontsize=6.5)
-ax.text(Nh*0.5,Nh*0.4,'liquid',ha='center'); ax.text(Nh*0.5,Nh*0.85,'frozen',ha='center')
+ax.text(Nh*0.5,Nh*0.4,'liquid',ha='center'); ax.text(Nh*0.5,Nh*0.86,'frozen',ha='center',fontsize=7)
 ax.set_aspect('equal'); ax.axis('off'); ax.set_title(r'(a) house, $k=N/2$: path $\Gamma$')
 H2=D['houseR']['k2']['rows']; H4=D['houseR']['k4']['rows']; H2=np.array(H2); H4=np.array(H4)
 axs[1].plot(H2[:,0],H2[:,1],'-',color=C2,label=r'prediction $k=N/2$'); axs[1].plot(H4[:,0],H4[:,1],'-',color=C1,label=r'prediction $k=N/4$')
@@ -193,13 +203,23 @@ if os.path.exists('lozfig.json'):
   save(fig,'fig9_lozenge')
 # ---------- Fig 10 triangular ----------
 fig,axs=plt.subplots(1,2,figsize=(7,2.5),gridspec_kw=dict(width_ratios=[1,1.2],wspace=0.3))
-T=np.array(D['tri13']); ax=axs[0]; vmax=2.0
-for i in range(T.shape[0]):
-    for j in range(T.shape[1]):
-        x0=i+0.5*j; y0=j*np.sqrt(3)/2
-        ax.add_patch(Polygon([[x0,y0],[x0+1,y0],[x0+1.5,y0+np.sqrt(3)/2],[x0+0.5,y0+np.sqrt(3)/2]],fc=cmap(min(T[i,j]/vmax,1)),ec='white',lw=0.2))
-ax.set_xlim(0,20); ax.set_ylim(0,12); ax.set_aspect('equal'); ax.axis('off'); ax.set_title('(a) triangular lattice, $13\\times13$ rhombus')
+T=np.array(D['tri13']); ax=axs[0]; nT=T.shape[0]
+from matplotlib.colors import Normalize
+cm10=LinearSegmentedColormap.from_list('t',['#f7f7f7','#9ecae1','#2171b5','#08306b']); n10=Normalize(0.5,2.6)
+hexv=[(np.cos(np.pi/6+k*np.pi/3)/np.sqrt(3),np.sin(np.pi/6+k*np.pi/3)/np.sqrt(3)) for k in range(6)]
+for r in range(nT):           # site (r,c) at r*e1 + c*e2, e1=(1,0), e2=(-1/2,sqrt3/2): bonds (r,c)-(r+1,c),(r,c+1),(r+1,c+1)
+    for c in range(nT):
+        x0=r-0.5*c; y0=c*np.sqrt(3)/2
+        ax.add_patch(Polygon([(x0+u,y0+v) for u,v in hexv],closed=True,fc=cm10(n10(T[r,c])),ec='white',lw=0.3))
+for (r,c,lab,dx,dy) in ((0,0,r'$120^\circ$',0.2,-1.3),(nT-1,0,r'$60^\circ$',1.3,-0.2),(0,nT-1,r'$60^\circ$',-0.9,0.4),(nT-1,nT-1,r'$120^\circ$',-0.3,1.0)):
+    ax.text(r-0.5*c+dx,c*np.sqrt(3)/2+dy,lab,fontsize=6.5,ha='center',color=C2)
+ax.set_xlim(-7.5,13.5); ax.set_ylim(-1.8,12.2); ax.set_aspect('equal'); ax.axis('off'); ax.set_title('(a) dimers on the triangular lattice, $13\\times13$')
+cbx=ax.inset_axes([0.2,-0.04,0.6,0.04]); cb=fig.colorbar(plt.cm.ScalarMappable(norm=n10,cmap=cm10),cax=cbx,orientation='horizontal'); cb.ax.tick_params(labelsize=6,length=2)
+cb.set_label(r'monomer probability $/\,$uniform',fontsize=6.5,labelpad=1)
 for key,col,lab in (('t60',C2,r'triangular, $60^\circ$ corner'),('t120',C1,r'triangular, $120^\circ$ corner'),('sq',C3,'square, odd board')):
     a=np.array(D['triratio'][key]); axs[1].loglog(a[:,0],a[:,1],'o-',color=col,ms=3,label=lab)
+from matplotlib.ticker import FixedLocator, NullFormatter
+axs[1].xaxis.set_major_locator(FixedLocator([5,7,9,13,31,63])); axs[1].xaxis.set_minor_formatter(NullFormatter()); axs[1].set_xticklabels(['5','7','9','13','31','63'])
+axs[1].yaxis.set_major_locator(FixedLocator([0.7,1,1.5,2,2.5])); axs[1].yaxis.set_minor_formatter(NullFormatter()); axs[1].set_yticklabels(['0.7','1','1.5','2','2.5'])
 axs[1].set_xlabel('size $N$'); axs[1].set_ylabel('corner/centre ratio'); axs[1].legend(frameon=False,fontsize=6.5); axs[1].set_title('(b) no long-range corner effect without charge')
 save(fig,'fig10_triangular')
