@@ -14,7 +14,7 @@
 
 \begin{document}
 
-\title{Forced defects in dimer coverings:\\ corner charges, boundary chemical potential, and trapping at frozen edges}
+\title{Forced defects in dimer coverings:\\ boundary chemical potential and trapping at frozen edges}
 
 \author{Changyeon Won}
 \email{cywon@khu.ac.kr}
@@ -23,7 +23,7 @@
 \date{\today}
 
 \begin{abstract}
-When a planar region cannot be covered completely by dimers, for example a chessboard with two opposite corners removed, uncovered sites (monomers) are forced to exist but are free to move. We ask where they go when all admissible configurations are equally likely, and use their distribution as a parameter-free probe of how a boundary acts on the defects of a constrained system. Exact enumeration on square-lattice domino regions up to $512$ sites across shows two regimes: power-law distributions controlled by the corners when the boundary is straight, and exponential trapping in a boundary layer when the boundary is a staircase that freezes the dimers next to it. We introduce a boundary chemical potential, $\mu=\delta\ln Z/\delta h_\partial$, the response of the macroscopic entropy to a shift of the boundary height, which connects the two regimes. On a boundary adjacent to an untilted liquid $\mu=0$; next to tilted or frozen regions $\mu\neq0$ and the defect weight acquires a factor $\exp\int\mu\,\dd s$. Inside frozen regions $\mu$ is not fixed by the limit shape, and we obtain it by continuing the complex Burgers solution along tangent lines to the arctic curve. This reproduces the exact large-deviation law of the Aztec diamond identically, and predicts without free parameters the trapping rate in mixed straight/staircase domains. When the defect path runs along frozen edges, linear response fails; a layer-removal cost $\partial\ln Z/\partial(\text{size})$ with competing nested channels restores agreement. This rule, inferred from the Aztec diamond, predicts exact data for lozenge tilings of hexagons to within $0.5\%$, including cases where linear response is off by orders of magnitude. In the power-law regime, corners act on mobile defects as fractional charges $q_c=-J_c/4$ set by the jump of the boundary height, and together with same-sign images at the edges they give a conformally covariant density formula that reproduces all rectangles to 1--3\% without parameters. We prove the corner-to-boundary law $4/[\pi(x+1)]$, reduce straight-string determinants to a single scalar Fisher--Hartwig symbol, and identify the half-plane and quadrant amplitudes as $2^{3/8}G(\tfrac12)^2$ and $2^{9/8}G(\tfrac12)^2$.
+When a planar region cannot be covered completely by dimers, for example a chessboard with two opposite corners removed, uncovered sites (monomers) are forced to exist but are free to move. We ask where they go when all admissible configurations are equally likely, and use their distribution as a parameter-free probe of how a boundary acts on the defects of a constrained system. Exact enumeration on square-lattice domino regions up to $512$ sites across shows two regimes: power-law distributions controlled by the corners when the boundary is straight, and exponential trapping in a boundary layer when the boundary is a staircase that freezes the dimers next to it. We introduce a boundary chemical potential, $\mu=\delta\ln Z/\delta h_\partial$, the response of the macroscopic entropy to a shift of the boundary height, which connects the two regimes. On a boundary adjacent to an untilted liquid $\mu=0$; next to tilted or frozen regions $\mu\neq0$ and the defect weight acquires a factor $\exp\int\mu\,\dd s$. Inside frozen regions $\mu$ is not fixed by the limit shape, and we obtain it by continuing the complex Burgers solution along tangent lines to the arctic curve. This reproduces the exact large-deviation law of the Aztec diamond identically, and predicts without free parameters the trapping rate in mixed straight/staircase domains. When the defect path runs along frozen edges, linear response fails; a layer-removal cost $\partial\ln Z/\partial(\text{size})$ with competing nested channels restores agreement. This rule, inferred from the Aztec diamond, predicts exact data for lozenge tilings of hexagons to within $0.5\%$, including cases where linear response is off by orders of magnitude. In the power-law regime the defects are governed by fractional corner charges and same-sign images, which are treated in a companion paper. We prove the corner-to-boundary law $4/[\pi(x+1)]$, reduce straight-string determinants to a single scalar Fisher--Hartwig symbol, and identify the half-plane and quadrant amplitudes as $2^{3/8}G(\tfrac12)^2$ and $2^{9/8}G(\tfrac12)^2$.
 \end{abstract}
 
 \maketitle
@@ -44,16 +44,14 @@ Our main results are the following.
 
 (ii) \emph{Layer cost and competing channels} (Sec.~\ref{sec:mu}). When the defect path runs along frozen edges, linear response is not enough. Each defect on a frozen staircase forces a zipper of dominoes, and two zippers meeting at a corner remove a layer of the domain. The resulting rule, Eq.~\eqref{eq:rule}, adds the layer-removal cost $\partial\ln Z/\partial(\text{size})$ and optimizes over nested channels. Inferred from the Aztec diamond, it predicts exact results for lozenge tilings of hexagons to within $0.5\%$, including cases where linear response alone is wrong by orders of magnitude (Table~\ref{tab:lozenge}). The layer cost required by consistency coincides with the derivative of $\ln Z$ along the defect-free side of the hexagon, not along the other two sides.
 
-(iii) \emph{Corner charges for mobile defects} (Sec.~\ref{sec:coulomb}). For straight edges, every corner acts on the moving defects as a fractional charge $q_c=-J_c/4$, Eq.~\eqref{eq:corner}, fixed by the jump of the boundary height ($\pm1/4$ for ordinary corners and $+3/4$ for a removed one). Combined with the same-sign image rule for constrained edges, this yields a conformally covariant density formula, Eq.~\eqref{eq:density}, and the corner exponents of Eq.~\eqref{eq:gamma}. Without parameters they reproduce the exact distributions of one and two defects in all rectangles to 1--3\%, including the $r^{-3/4}$ divergence of the density next to a removed corner and the $N^{-1/4}$ depletion of the corners of odd boards.
+(iii) \emph{Exact results} (Sec.~\ref{sec:exact}). We prove the corner-to-boundary law $4/[\pi(x+1)]$ in the quadrant, Eq.~\eqref{eq:thmA}. We show that straight-string determinants in the plane and the half plane reduce to Toeplitz and Toeplitz+Hankel determinants of a single scalar symbol, which reproduces the known bulk amplitude and gives the new half-plane and quadrant amplitudes $2^{3/8}G(\tfrac12)^2$ and $2^{9/8}G(\tfrac12)^2$ to 18 digits.
 
-(iv) \emph{Exact results} (Sec.~\ref{sec:exact}). We prove the corner-to-boundary law $4/[\pi(x+1)]$ in the quadrant, Eq.~\eqref{eq:thmA}. We show that straight-string determinants in the plane and the half plane reduce to Toeplitz and Toeplitz+Hankel determinants of a single scalar symbol, which reproduces the known bulk amplitude and gives the new half-plane and quadrant amplitudes $2^{3/8}G(\tfrac12)^2$ and $2^{9/8}G(\tfrac12)^2$ to 18 digits.
-
-A control on the non-bipartite triangular lattice, where monomers carry no charge, shows no long-range boundary effect (Sec.~\ref{sec:triangle}). Throughout we distinguish rigorous results, results established by exact arithmetic to many digits, numerically supported statements and conjectures; Table~\ref{tab:summary} summarizes the status of each result and identifies what was known before.
+The power-law regime of straight edges, where corners act as fractional charges and edges as same-sign mirrors, is summarized in Sec.~\ref{sec:coulomb} and treated in detail, together with its dependence on stiffness, lattice and bipartiteness, in the companion paper~\cite{PaperII}. Throughout we distinguish rigorous results, results established by exact arithmetic to many digits, numerically supported statements and conjectures; Table~\ref{tab:summary} summarizes the status of each result and identifies what was known before.
 
 %---------------------------------------------------------------------
 \begin{figure*}[t]
-\includegraphics[width=0.85\textwidth]{figs/fig1_schematic.pdf}
-\caption{(a) An $8\times8$ board with corner a1 removed. The region has one more white than black square, so one white defect (charge $e=-1$) is forced. Each corner carries the fractional charge $q_c=-J_c/4$ given by the jump $J_c$ of the boundary height: $-1/4$ for a black corner, $+1/4$ for a white corner and $+3/4$ for the removed black corner. (b) In the continuum description the edge of the region acts as a mirror with images of the same sign, and the corners act as fixed charges. The resulting density of a single defect is given by Eq.~\eqref{eq:density}.}
+\includegraphics[width=0.8\textwidth]{figs/fig1_regimes.pdf}
+\caption{Two regimes for a forced defect (exact densities, common logarithmic scale). (a) A $64\times64$ board with one corner removed: the boundary is straight and next to an untilted liquid, $\mu=0$, and the density varies only by power laws set by the corners~\cite{PaperII}. (b) The Aztec diamond of order $n=24$ with its west tip removed: the staircase boundary freezes the dimers next to it (dashed: arctic circle), $\mu\neq0$, and the defect is trapped in a boundary layer; the density varies over eight decades.}
 \label{fig:schematic}
 \end{figure*}
 
@@ -82,59 +80,15 @@ On $8\times8$ boards the three methods agree for all 1552 defect configurations.
 All key claims of Secs.~\ref{sec:exact}--\ref{sec:mu} were independently re-derived from scratch by a separate code base; no discrepancy was found.
 
 %=====================================================================
-\section{Coulomb gas for axis-parallel boundaries}
+\section{Straight edges: the power-law regime}
 \label{sec:coulomb}
 %=====================================================================
-
-\subsection{Corner charges from boundary height jumps}
-Walking counterclockwise along the boundary, the height oscillates between two values on a straight edge, so its average is constant along each edge. At a convex corner the corner cell contributes two consecutive steps of the same sign. The average height therefore jumps by $J_c=+1$ at a black corner and $J_c=-1$ at a white corner. At the notch of a removed black corner four consecutive $-1$ steps give $J_c=-3$, which differs from $+1$ by one monomer's worth of winding.
-
-A jump $J$ at a boundary point $c$ creates an average height $(J/\pi)\arg(z-c)$. Its harmonic conjugate is $(J/\pi)\ln|z-c|$. A bulk monomer creates $(2/\pi)\ln|z-z_0|$ in the same normalization. Because the dual field obeys Neumann conditions, a charge on the boundary overlaps with its own image. Matching $2q\cdot(2/\pi)=J/\pi$ gives
+On a straight edge next to an untilted liquid, $\mu=0$ (Sec.~\ref{sec:mu}) and the defects feel only power laws. Walking counterclockwise along the boundary, the height oscillates between two values on a straight edge, so its average is constant along each edge and jumps at corners: by $J_c=+1$ at a black corner, $-1$ at a white corner and $-3\equiv+1$ (modulo one monomer's winding) at the notch of a removed black corner. In the companion paper~\cite{PaperII} we show that these jumps act on mobile defects as fixed fractional charges $q_c=-J_c/4$ (cf.\ the boundary-condition-changing operators of Allegra~\cite{Allegra2015}), and that each edge is a mirror with images of the same sign~\cite{Ciucu2015}. The resulting conformally covariant density,
 \begin{equation}
-\begin{split}q_c&=-\frac{J_c}{4}:\\ q&=-\tfrac14\ \text{(black)},\ +\tfrac14\ \text{(white)},\ +\tfrac34\ \text{(removed)}.\end{split}
-\label{eq:corner}
-\end{equation}
-This is a purely combinatorial statement. The same boundary-height jumps were identified by Allegra~\cite{Allegra2015} as boundary-condition-changing operators of dimension $J^2/32$ at the corners. That work used them to compute corner free energies and correlations of monomers placed \emph{at} corners. Here we use them for the distribution of \emph{freely moving} defects.
-
-\subsection{Density formula and corner exponents}
-Let $f$ map the region conformally onto the upper half plane, and let $f_c=f(c)$ be the images of the corners. Treating the defect as a charge $e$ in the field of the corner charges and of its images, we obtain
-\begin{equation}
-\rho(z)\propto|f'(z)|^{1/4}\,[\mathrm{Im}f(z)]^{1/4}\prod_c|f(z)-f_c|^{e\,q_c}.
+\rho(z)\propto|f'(z)|^{1/4}\,[\mathrm{Im}f(z)]^{1/4}\prod_c|f(z)-f_c|^{e\,q_c},
 \label{eq:density}
 \end{equation}
-For two defects there is an additional factor $\left(|f_1-f_2|\,|f_1-\bar f_2|\right)^{e_1e_2/2}$. The factor $|f'|^{1/4}(\mathrm{Im}f)^{1/4}$ is the one-point function of a charge of dimension $1/4$ in the presence of a same-sign image. Near a corner of interior angle $\theta$, Eq.~\eqref{eq:density} predicts $\rho\sim r^{\gamma}$, with the factor $\pi/\theta$ familiar from conformal corner exponents~\cite{Cardy1984},
-\begin{equation}
-\gamma=\frac{\pi}{\theta}\Bigl(\frac12+e\,q_c\Bigr)-\frac14 .
-\label{eq:gamma}
-\end{equation}
-For a white defect next to the removed corner a1 ($\theta=\pi/2$, $q_c=3/4$), this gives $\gamma=-3/4$. The defect density thus \emph{diverges} as $r^{-3/4}$ toward the removed corner (Fig.~\ref{fig:single}). The exact slopes $0.754$ ($N=64\to128$) and, on the mutilated board, $0.750$ agree with this prediction. The formula also holds for concave corners, to three decimal places.
-
-\begin{figure*}[t]
-\includegraphics[width=\textwidth]{figs/fig2_single.pdf}
-\caption{A single removed corner. (a) Exact defect density on a $64\times64$ board with a1 removed, averaged over $2\times2$ blocks and normalized to the uniform value. (b) The parameter-free Coulomb-gas prediction, Eq.~\eqref{eq:density}, computed with the Jacobi-elliptic map of the square. (c) Density at three special cells versus board size (exact, symbols), compared with the power laws predicted by Eq.~\eqref{eq:gamma} (dashed). The rms deviation between (a) and (b) is $0.9\%$ at $N=128$ and decreases as $1/N$. The orange square marks the removed cell a1.}
-\label{fig:single}
-\end{figure*}
-
-\begin{figure*}[t]
-\includegraphics[width=\textwidth]{figs/fig3_mutilated.pdf}
-\caption{The mutilated chessboard (corners a1 and h8 removed; two white defects). (a,b) Exact marginal density at $N=96$ ($2\times2$ block averages, each block containing exactly two white cells) compared with the two-defect Coulomb gas. Orange squares mark the removed corners a1 and h8. (c) Distribution of the defect separation. (d) Corner scaling for $N=8$--$96$; dashed lines show the slopes predicted by Eq.~\eqref{eq:gamma}. (e) Conditional density around a defect fixed at the centre. All theory curves are parameter free.}
-\label{fig:mutilated}
-\end{figure*}
-
-\subsection{Tests}
-We tested Eq.~\eqref{eq:density} on even$\times$even, odd$\times$odd and odd$\times$even rectangles, with corner, edge and interior cells removed, and with one or two defects (Figs.~\ref{fig:single}--\ref{fig:odd}). The rms deviations are 1--3\% at the largest sizes and decrease as $1/N$. Two special cases illustrate the physics.
-
-\emph{Mutilated board} (Fig.~\ref{fig:mutilated}). The two defects are attracted by the two removed corners ($q=+3/4$ each) and repel each other. Their joint distribution, the corner scaling and the conditional density around a central defect all follow the Coulomb gas.
-
-\emph{Odd$\times$odd board} (Fig.~\ref{fig:odd}). All four corners carry $q=+1/4$. For the black defect the total boundary charge is neutral, and Eq.~\eqref{eq:density} reduces to $\rho\propto R^{1/4}$, where $R$ is the conformal radius. The defect is pushed toward the centre, and the corner-to-centre ratio decays as $N^{-1/4}$. At the lattice level, the equal probability of all even-even boundary cells follows from Temperley's bijection; the corresponding counts were obtained by Tzeng and Wu~\cite{TzengWu2003,Wu2006}. Bouttier \emph{et al.} studied the same bijection for a mobile vacancy and found that the probability for a central vacancy to reach the boundary decays as $L^{-1/4}$~\cite{BouttierBowickGuitterJeng2008}. The defect lives on two black sublattices, (even,even) and (odd,odd), whose weights differ near the boundary (Fig.~\ref{fig:odd}a,b,d). This staggering is a lattice effect that the continuum formula averages over: the sublattice means differ by $0.42$, $0.27$, $0.17$ and $0.10$ (in units of $\rho_{\rm unif}$) for $N=7$, $15$, $31$ and $63$, and the average of neighbouring cells of the two sublattices follows $\rho\propto R^{1/4}$ to within $3\%$ everywhere except in the outermost row.
-
-\begin{figure*}[t]
-\includegraphics[width=\textwidth]{figs/fig4_odd.pdf}
-\caption{Odd$\times$odd boards, where the boundary charge is neutral. (a,b) Exact defect density on a $63\times63$ board, shown cell by cell on the two black sublattices, (even,even) and (odd,odd), without averaging. (c) Prediction $\rho\propto R^{1/4}$, where $R$ is the conformal radius. (d) Cut along the central column: the two sublattices (symbols) bracket the prediction (line). (e) Corner-to-centre ratio versus $N$, with the predicted slope $-1/4$.}
-\label{fig:odd}
-\end{figure*}
-
-\emph{Image charges.} A single defect near a straight edge and a pair of defects confirm that the image has the \emph{same} sign as the source (Fig.~\ref{fig:pairs}a). This is the rule found by Ciucu for gaps in lozenge tilings near constrained boundaries~\cite{Ciucu2015,CiucuFischer2015}; in that terminology every edge in the present paper is constrained. Near a free boundary, where dimers may protrude, the image has the opposite sign and the boundary behaves as a conductor~\cite{CiucuKrattenthaler2011,Ciucu2015}. Our contribution here is to combine the same-sign images with the corner charges of Eq.~\eqref{eq:corner} for freely moving defects on the square lattice. The pair correlation decays as $d^{-1}$ along a boundary and as $d^{-1/2}$ in the bulk. The boundary-pair amplitude $2/(\pi d)$ agrees with the result of Priezzhev and Ruelle~\cite{PriezzhevRuelle2008}. At the lattice level the sign follows from the fact that the long-distance behaviour of $K^{-1}$ is dominated by momenta $\pm\pi/2$. A reflection that shifts by two lattice spacings then acquires a phase $e^{i\pi}=-1$, which converts the lattice Dirichlet reflection into a continuum Neumann (same-sign) image.
+with $f$ a conformal map onto the upper half plane, reproduces exact densities on rectangles to 1--3\% [Fig.~\ref{fig:schematic}(a)], including the $r^{-3/4}$ divergence next to a removed corner and the $N^{-1/4}$ depletion of the corners of odd boards. Pair correlations decay as $d^{-1}$ along a boundary and as $d^{-1/2}$ in the bulk; their amplitudes are derived in Sec.~\ref{sec:exact}. Here these power laws serve as the baseline against which the exponential trapping of frozen boundaries is measured.
 
 %=====================================================================
 \section{Exact results and amplitudes}
@@ -151,7 +105,7 @@ In the infinite quadrant with its corner cell $c$ removed, place a white defect 
 \end{equation}
 The values are of the form ``integer minus rational$/\pi$'', e.g.\ $2-16/(3\pi)$ at $x=3$.
 \end{theorem}
-The proof diagonalizes the box Kasteleyn matrix by sine functions and evaluates one integral in closed form. The leading term comes from $\theta=\pi/2$, and the next order vanishes by parity. The exponent $-1$ is the Coulomb-gas value $|f'|^{1/2}|f|^{-3/4}$ for $f=z^2$, while the prefactor $4/\pi$ is a lattice quantity.
+The proof diagonalizes the box Kasteleyn matrix by sine functions and evaluates one integral in closed form. The leading term comes from $\theta=\pi/2$, and the next order vanishes by parity. The exponent $-1$ is the Coulomb-gas value $|f'|^{1/2}|f|^{-3/4}$ for $f=z^2$, i.e.\ a boundary defect next to the removed-corner charge $q_c=+\tfrac34$~\cite{PaperII}, while the prefactor $4/\pi$ is a lattice quantity.
 
 \subsection{A single scalar symbol}
 For a vertical string, the horizontal offset between the black end of the $j$th string edge and the white end of the $l$th depends only on the parity of $j-l$. Hence $I-2G$ is a Toeplitz matrix in $j-l$. Summing the Fourier series in closed form gives the symbol
@@ -295,29 +249,17 @@ $1.4{:}0.8{:}1$ & $(0.6,0.4)$ & $0.554$ & $0.5544$ ($1$) & $0.5534$\\
 \end{table}
 
 %=====================================================================
-\section{Control: no charge, no long-range boundary effect}
-\label{sec:triangle}
-%=====================================================================
-On the non-bipartite triangular lattice there is no height field. Monomers then carry only a $\mathbb Z_2$ label and no U(1) charge~\cite{FendleyMoessnerSondhi2002}. Exact transfer-matrix counts for dimers on the bonds of the triangular lattice, on rhombi with $60^\circ$ and $120^\circ$ corners, show a boundary layer of one or two cells, beyond which the defect distribution is flat. The corner-to-centre ratio saturates instead of scaling (Fig.~\ref{fig:tri}). This contrasts with the $N^{-1/4}$ law of the odd square board and confirms that the long-range corner physics requires the emergent charge.
-
-\begin{figure*}[t]
-\includegraphics[width=0.85\textwidth]{figs/fig10_triangular.pdf}
-\caption{Control on the triangular lattice. (a) Monomer probability on a $13\times13$ rhombus of the triangular lattice (normalized to uniform). Here the dimers cover bonds between sites of the triangular lattice, so each site is drawn as its hexagonal cell; this differs from the lozenge tilings of Sec.~\ref{sec:mu}, which are dimers on the honeycomb lattice and are bipartite. (b) Corner-to-centre ratio versus size: saturation for the triangular lattice ($60^\circ$, $120^\circ$) against the power law $N^{-1/4}$ of the square lattice.}
-\label{fig:tri}
-\end{figure*}
-
-%=====================================================================
 \section{Discussion and conclusions}
 \label{sec:conclusion}
 %=====================================================================
 
 Forced defects in a dimer covering are moved only by entropy, and the boundary is the only thing that tells them where to go. Their distribution is therefore a clean, parameter-free measure of how a boundary acts on the defects of a constrained system. The central result of this paper is that this action is captured by a single local quantity, the boundary chemical potential $\mu=\delta\ln Z/\delta h_\partial$, the entropy cost of shifting the boundary height. Next to an untilted liquid $\mu$ vanishes; next to tilted or frozen regions it does not, and the defects are trapped exponentially. In frozen regions $\mu$ is fixed by continuing the complex Burgers solution along tangent lines to the arctic curve. With this one ingredient the Aztec-diamond law is reproduced identically, and the trapping rate and optimal trapping point in mixed domains are predicted without parameters. Along frozen edges a geometric layer cost and a competition between nested channels must be added. The resulting rule, Eq.~\eqref{eq:rule}, was inferred from the Aztec diamond and predicts exact lozenge-tiling data to within half a per cent, in cases where linear response fails by orders of magnitude.
 
-In the opposite limit, $\mu=0$, only the power laws of the emergent electrostatics remain, and the boundary acts through its corners. Each corner is a fractional charge $q_c=-J_c/4$ set by the jump of the boundary height, and each constrained edge is a same-sign mirror. Its origin is the Gauss law imposed by close packing together with the Gaussian fluctuations of the height field; entropy only sets the stiffness (the dielectric constant). A single formula, Eq.~\eqref{eq:density}, then describes the mobile defects in all rectangular geometries without parameters. At the lattice level, the amplitudes factorize into a universal bulk monomer normalization, which contains $G(\tfrac12)^2$, and elementary boundary and corner normalizations, and straight-string determinants reduce to a single scalar Fisher--Hartwig symbol.
+In the opposite limit, $\mu=0$, only the power laws of the emergent electrostatics remain, and the boundary acts through its corners as fractional charges and through its edges as same-sign mirrors~\cite{PaperII}. At the lattice level, the amplitudes factorize into a universal bulk monomer normalization, which contains $G(\tfrac12)^2$, and elementary boundary and corner normalizations, and straight-string determinants reduce to a single scalar Fisher--Hartwig symbol.
 
-The same questions arise wherever constrained degrees of freedom produce emergent Coulomb physics with boundaries. Examples are monopoles in finite spin-ice samples and nanostructures, defects in artificial spin ice, where edge and corner populations can be imaged by magnetic force microscopy~\cite{Wang2006,Ladak2010}, dimer adsorbates and molecular monolayers on terraces, and constrained colloidal systems. Our results suggest that defects should be trapped exponentially wherever the boundary orders (freezes) the constrained phase next to it, at the points where the ordered and critical regions meet, with a rate set by the boundary chemical potential. Where the phase touching the boundary is critical, corners should instead act as fractional charges and constrained edges as same-sign mirrors. Interactions between dimers change the stiffness $g$~\cite{Alet2005}, so all exponents in Eq.~\eqref{eq:gamma} should scale with $g$. This offers an experimental handle on the coupling constant.
+The same questions arise wherever constrained degrees of freedom produce emergent Coulomb physics with boundaries. Examples are monopoles in finite spin-ice samples and nanostructures, defects in artificial spin ice, where edge and corner populations can be imaged by magnetic force microscopy~\cite{Wang2006,Ladak2010}, dimer adsorbates and molecular monolayers on terraces, and constrained colloidal systems. Our results suggest that defects should be trapped exponentially wherever the boundary orders (freezes) the constrained phase next to it, at the points where the ordered and critical regions meet, with a rate set by the boundary chemical potential. Where the phase touching the boundary is critical, corners should instead act as fractional charges and constrained edges as same-sign mirrors. How the corner charges depend on the stiffness, the lattice and bipartiteness is the subject of Ref.~\cite{PaperII}.
 
-Several questions remain open. Among them are a proof of the corner-charge density formula for general domains, which is likely accessible through piecewise-Temperleyan and monodromy methods~\cite{Russkikh2018,Dubedat2015}, and the Toeplitz+Hankel asymptotics that would prove the half-plane and quadrant amplitudes. Others are a first-principles justification of the tangent continuation and of the layer rule in general domains, which appears to be related to the tangent method of Colomo and Sportiello~\cite{ColomoSportiello2016} (proved for a class of six-vertex domains by Aggarwal~\cite{Aggarwal2020}), and the behaviour of many defects, where screening of the corner charges is expected.
+Several questions remain open. Among them are the Toeplitz+Hankel asymptotics that would prove the half-plane and quadrant amplitudes. Others are a first-principles justification of the tangent continuation and of the layer rule in general domains, which appears to be related to the tangent method of Colomo and Sportiello~\cite{ColomoSportiello2016} (proved for a class of six-vertex domains by Aggarwal~\cite{Aggarwal2020}), and the behaviour of many defects, where screening of the corner charges is expected.
 
 \begin{table}[t]
 \caption{Summary of results and their status. ``Proof'': rigorous; ``exact'': exact arithmetic or $\geq10$ digits; ``numerical'': agreement at the per-cent level across sizes; ``known'': previously established in the cited work.}
@@ -326,8 +268,6 @@ Several questions remain open. Among them are a proof of the corner-charge densi
 \begin{tabular}{p{4.6cm}p{3.0cm}}
 Result & Status\\
 \hline
-Corner charge $q_c=-J_c/4$ & proof; cf.~\cite{Allegra2015}\\
-Density formula \eqref{eq:density}, exponent \eqref{eq:gamma} & numerical (1--3\%)\\
 Quadrant boundary law \eqref{eq:thmA} & proof\\
 Scalar-symbol reductions \eqref{eq:reductions} & proof\\
 Bulk amplitude $\pi2^{-3/4}G(\frac12)^4$ & known: axis~\cite{WilkinsPowell2021}, diagonal~\cite{Hartwig1966}; new derivation\\
@@ -336,7 +276,6 @@ Aztec laws \eqref{eq:thmC}--\eqref{eq:thmE} & known~\cite{ChhitaYoung2014}; new 
 $\mu$ of the Aztec diamond, Eq.~\eqref{eq:muaztec} & exact identity (given tangent continuation)\\
 House trapping rates & numerical (5\%)\\
 Layer rule \eqref{eq:rule} & conjecture; exact for Aztec, 0.5\% for lozenges\\
-Triangular control & numerical\\
 \end{tabular}
 \end{ruledtabular}
 \end{table}
@@ -363,7 +302,7 @@ and the binomial identity $\sum_{s<j\le s'}\binom ns\binom n{s'}(s'-s)=n2^{n-1}\
 %=====================================================================
 \section{Numerical details}
 %=====================================================================
-Coulomb-gas predictions for rectangles use the Jacobi map $f(u)=\mathrm{sn}(u,k)$, with the modulus fixed by the aspect ratio. Limit shapes were computed by minimizing the Cohn--Kenyon--Propp functional with the domino entropy written in terms of the Lobachevsky function. We used a finite-element mesh with four triangles per cell, which avoids locking at the slope constraint, and penalty continuation. On the Aztec diamond this reproduces the entropy to $0.02\%$ and the frozen area fraction $1-\pi/4$. Rates were extrapolated using $a+b\ln n/n+c/n$.
+Limit shapes were computed by minimizing the Cohn--Kenyon--Propp functional with the domino entropy written in terms of the Lobachevsky function. We used a finite-element mesh with four triangles per cell, which avoids locking at the slope constraint, and penalty continuation. On the Aztec diamond this reproduces the entropy to $0.02\%$ and the frozen area fraction $1-\pi/4$. Rates were extrapolated using $a+b\ln n/n+c/n$.
 
 %=====================================================================
 \begin{thebibliography}{99}
@@ -396,9 +335,6 @@ Coulomb-gas predictions for rectangles use the Jacobi map $f(u)=\mathrm{sn}(u,k)
 \bibitem{Lindstrom1973} B. Lindstr\"om, Bull. London Math. Soc. \textbf{5}, 85 (1973).
 \bibitem{GesselViennot1985} I. Gessel and G. Viennot, Adv. Math. \textbf{58}, 300 (1985).
 \bibitem{Kuo2004} E. H. Kuo, Theor. Comput. Sci. \textbf{319}, 29 (2004).
-\bibitem{Alet2005} F. Alet, J. L. Jacobsen, G. Misguich, V. Pasquier, F. Mila, and M. Troyer, Phys. Rev. Lett. \textbf{94}, 235702 (2005).
-\bibitem{Russkikh2018} M. Russkikh, Probab. Theory Relat. Fields \textbf{171}, 281 (2018).
-\bibitem{Dubedat2015} J. Dub\'edat, J. Amer. Math. Soc. \textbf{28}, 1063 (2015).
 \bibitem{ColomoSportiello2016} F. Colomo and A. Sportiello, J. Stat. Phys. \textbf{164}, 1488 (2016).
 \bibitem{KrauthMoessner2003} W. Krauth and R. Moessner, Phys. Rev. B \textbf{67}, 064503 (2003).
 \bibitem{WilkinsPowell2021} N. Wilkins and S. Powell, Phys. Rev. E \textbf{104}, 014145 (2021).
@@ -412,7 +348,7 @@ Coulomb-gas predictions for rectangles use the Jacobi map $f(u)=\mathrm{sn}(u,k)
 \bibitem{CiucuFischer2015} M. Ciucu and I. Fischer, \emph{A triangular gap of size two in a sea of dimers on a $60^\circ$ angle}, arXiv:1405.4235.
 \bibitem{CiucuFischer2016} M. Ciucu and I. Fischer, \emph{Lozenge tilings of hexagons with arbitrary dents}, arXiv:1412.3945.
 \bibitem{CohnLarsenPropp1998} H. Cohn, M. Larsen, and J. Propp, New York J. Math. \textbf{4}, 137 (1998).
-\bibitem{Cardy1984} J. L. Cardy, Nucl. Phys. B \textbf{240}, 514 (1984).
+\bibitem{PaperII} C. Won, \emph{Where forced defects go: fractional corner charges, images and screening in dimer coverings} (in preparation).
 \bibitem{Aggarwal2020} A. Aggarwal, Invent. Math. \textbf{220}, 611 (2020).
 \end{thebibliography}
 
